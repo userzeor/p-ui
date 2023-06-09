@@ -10,7 +10,7 @@ export default defineComponent({
       default: ''
     }
   },
-  setup (props, context) {
+  setup(props, context) {
     Log(props, context)
     const onBtnClick = () => {
       console.log('点击按钮测试', props.msg)
@@ -18,8 +18,10 @@ export default defineComponent({
     return () => (
       <div class={NAME}>
         <h1>yyg-demo-ui Foo</h1>
-        <p class={NAME + '__description'}>msg is: { props.msg }</p>
-        <el-button type='primary' onClick={onBtnClick}>点击我</el-button>
+        <p class={NAME + '__description'}>msg is: {props.msg}</p>
+        <el-button type="primary" onClick={onBtnClick}>
+          点击我
+        </el-button>
       </div>
     )
   }

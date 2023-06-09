@@ -14,7 +14,9 @@ export const convertFirstLower = (str) => {
  * 转为中划线命名
  */
 export const convertToLine = (str) => {
-  return convertFirstLower(str).replace(/([A-Z])/g, '-$1').toLowerCase()
+  return convertFirstLower(str)
+    .replace(/([A-Z])/g, '-$1')
+    .toLowerCase()
 }
 /**
  * 转为驼峰命名（首字母大写）
@@ -22,7 +24,7 @@ export const convertToLine = (str) => {
 export const convertToUpCamelName = (str) => {
   let ret = ''
   const list = str.split('-')
-  list.forEach(item => {
+  list.forEach((item) => {
     ret += convertFirstUpper(item)
   })
   return convertFirstUpper(ret)

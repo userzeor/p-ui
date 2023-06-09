@@ -13,15 +13,15 @@ const sidebar = {
       text: '指南',
       items: [
         { text: '组件库介绍', link: '/guide/' },
-        { text: '快速开始', link: '/guide/quickstart' },
+        { text: '快速开始', link: '/guide/quickstart' }
       ]
     }
   ],
-  '/components': [{
-    items: [
-      ...components
-    ]
-  }]
+  '/components': [
+    {
+      items: [...components]
+    }
+  ]
 }
 
 export default defineConfig({
@@ -34,9 +34,7 @@ export default defineConfig({
     logo: '/logo.png',
     siteTitle: 'p-ui',
     outline: 3,
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
     nav,
     sidebar
   },
