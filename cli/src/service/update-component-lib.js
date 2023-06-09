@@ -14,7 +14,7 @@ const updateComponentLibIndex = (libPath, componentInfo) => {
   const result =
     `${content.substring(0, index1)}` +
     `import ${componentInfo.upCamelName} from '${componentInfo.nameWithLib}'\n` +
-    content.substring(index1, index2 - 1) +
+    content.substring(index1, index2) +
     `,\n  ${componentInfo.upCamelName}\n` +
     content.substring(index2)
 
