@@ -1,0 +1,21 @@
+{
+  "name": "@p-ui/cli",
+  "version": "1.0.0",
+  "description": "命令行工具",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "gen": "node ./index.js create"
+  },
+  "keywords": [],
+  "author": "userzeor",
+  "license": "ISC",
+  "devDependencies": {
+    "chalk": "^5.2.0",
+    "commander": "^10.0.1",
+    "inquirer": "^9.2.7",
+    "log-symbols": "^5.1.0",
+    "ora": "^6.3.1",
+    "shelljs": "^0.8.5"
+  }
+}
