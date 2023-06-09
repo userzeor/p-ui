@@ -5,7 +5,7 @@ import fs from 'fs'
 import { g } from '../util/log-utils.js'
 
 const updateComponentLibIndex = (libPath, componentInfo) => {
-  const indexPath = path.join(libPath, 'index.ts')
+  const indexPath = path.join(libPath, 'index.js')
   const content = fs.readFileSync(indexPath).toString()
 
   const index1 = content.indexOf('// import component end')
@@ -31,7 +31,7 @@ export const updateComponentLib = async (componentInfo) => {
   // 1. 添加新创建的组件到依赖中
   await execCmd(`cd ${libPath} && pnpm install ${componentInfo.nameWithLib}`)
 
-  // 2. 更新入口 index.ts
+  // 2. 更新入口 index.js
   updateComponentLibIndex(libPath, componentInfo)
 
   g('component library update success')

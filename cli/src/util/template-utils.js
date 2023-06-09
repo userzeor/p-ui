@@ -23,12 +23,11 @@ export const sfcTemplate = (lineNameWithPrefix, lowCamelName) => {
 }
 
 /**
- * .tsx 文件模板
+ * .jsx 文件模板
  */
 export const jsxTemplate = (lineNameWithPrefix, lowCamelName) => {
   return `import { defineComponent } from 'vue'
-          import { ${lowCamelName}Props } from './types'
-
+  
           const NAME = '${lineNameWithPrefix}'
 
           export default defineComponent({
@@ -49,12 +48,12 @@ export const jsxTemplate = (lineNameWithPrefix, lowCamelName) => {
 }
 
 /**
- * 组件入口 index.ts 文件模板
+ * 组件入口 index.js 文件模板
  */
 export const indexTemplate = (componentInfo) => {
   const { upCamelName, lineName, lineNameWithPrefix, type } = componentInfo
 
-  return `import ${upCamelName} from './src/${type === 'tsx' ? lineName : lineName + '.' + type}'
+  return `import ${upCamelName} from './src/${type === 'jsx' ? lineName : lineName + '.' + type}'
           import { App } from 'vue'
           ${type === 'vue' ? `\n${upCamelName}.name = '${lineNameWithPrefix}'\n` : ''}
           ${upCamelName}.install = (app: App): void => {
