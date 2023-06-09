@@ -8,11 +8,10 @@ export const sfcTemplate = (lineNameWithPrefix, lowCamelName) => {
             </div>
           </template>
 
-          <script lang="ts" setup name="${lineNameWithPrefix}">
+          <script setup name="${lineNameWithPrefix}">
           import { defineProps } from 'vue'
-          import { ${lowCamelName}Props } from './types'
 
-          defineProps(${lowCamelName}Props)
+          defineProps({})
           </script>
 
           <style scoped lang="scss">
@@ -27,7 +26,7 @@ export const sfcTemplate = (lineNameWithPrefix, lowCamelName) => {
  */
 export const jsxTemplate = (lineNameWithPrefix, lowCamelName) => {
   return `import { defineComponent } from 'vue'
-  
+
           const NAME = '${lineNameWithPrefix}'
 
           export default defineComponent({
@@ -125,7 +124,7 @@ export const demoTemplate = (lineNameWithPrefix) => {
             <${lineNameWithPrefix}></${lineNameWithPrefix}>
           </template>
 
-          <script lang="ts" setup>
+          <script setup>
           </script>
 
           <style scoped lang="scss">
