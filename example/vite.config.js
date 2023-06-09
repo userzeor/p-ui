@@ -5,11 +5,7 @@ import eslint from 'vite-plugin-eslint'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
-  plugins: [
-    vue(),
-    vueJsx(),
-    eslint()
-  ],
+  plugins: [vue(), vueJsx(), eslint()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')
@@ -21,7 +17,7 @@ export default defineConfig({
     proxy: {}
   },
   build: {
-    outDir: path.resolve(__dirname, '../dist')
+    outDir: path.resolve(__dirname, './dist')
   },
   envDir: path.resolve(__dirname, 'env')
 })

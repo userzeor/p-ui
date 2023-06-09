@@ -1,0 +1,9 @@
+# 忽略目录下文件的语法检查
+dist
+docs/.vitepress/dist
+example/dist
+node_modules
+cli/node_modules
+docs/node_modules
+example/node_modules
+packages/*/node_modules

@@ -6,6 +6,7 @@ import { initComponent } from '../service/init-component.js'
 import { initScss } from '../service/init-scss.js'
 import { updateComponentLib } from '../service/update-component-lib.js'
 import { initDoc } from '../service/init-doc.js'
+import { execCmd } from '../util/cmd-utils.js'
 
 // 交互提示
 const questions = [
@@ -41,6 +42,8 @@ const createNewComponent = async (componentName, description, componentType) => 
     await updateComponentLib(componentInfo)
     // 5. 组件库文档
     initDoc(componentInfo)
+    // 6. 格式化文件
+    await execCmd('cd ../ && pnpm run prettier')
 
     closeLoading()
     g(`component [${componentInfo.lineName} ${componentInfo.zhName}] created done!`)
