@@ -25,7 +25,7 @@ export const initDoc = (componentInfo) => {
   )
 
   // 3. 更新组件库文档菜单
-  const menuPath = path.resolve(docRootPath, 'components.ts')
+  const menuPath = path.resolve(docRootPath, 'components.js')
   const content = fs.readFileSync(menuPath).toString()
   const index = content.indexOf('] // end')
   const result =
