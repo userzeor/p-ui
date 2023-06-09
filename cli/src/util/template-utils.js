@@ -55,7 +55,7 @@ export const indexTemplate = (componentInfo) => {
   return `import ${upCamelName} from './src/${type === 'jsx' ? lineName : lineName + '.' + type}'
           import { App } from 'vue'
           ${type === 'vue' ? `\n${upCamelName}.name = '${lineNameWithPrefix}'\n` : ''}
-          ${upCamelName}.install = (app: App): void => {
+          ${upCamelName}.install = (app) => {
             // 注册组件
             app.component(${upCamelName}.name, ${upCamelName})
           }
