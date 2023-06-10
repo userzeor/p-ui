@@ -252,10 +252,9 @@
     grid-template-rows: repeat(($rowCount * 2+1), vfr($gridWidth, $columnCount));
   } @else if $gridOrient == horizontal {
     grid-template-columns: repeat(($columnCount * 2+1), 1fr);
-    grid-template-rows: repeat(
-        $rowCount,
-        hfr($gridWidth, $columnCount) (hfr($gridWidth, $columnCount) * 2)
-      ) hfr($gridWidth, $columnCount);
+    grid-template-rows:
+      repeat($rowCount, hfr($gridWidth, $columnCount) (hfr($gridWidth, $columnCount) * 2))
+      hfr($gridWidth, $columnCount);
   }
 }
 

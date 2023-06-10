@@ -27,7 +27,7 @@ const sidebar = {
 export default defineConfig({
   title: 'p-ui',
   description: 'Vue3企业级中后台组件库',
-  lang: 'cn-ZH',
+  lang: 'zh-CN',
   base: '/',
   lastUpdated: true,
   themeConfig: {
@@ -36,7 +36,16 @@ export default defineConfig({
     outline: 3,
     socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
     nav,
-    sidebar
+    sidebar,
+    algolia: {
+      appId: '7H67QR5P0A',
+      apiKey: 'deaab78bcdfe96b599497d25acc6460e',
+      indexName: 'vitejs',
+      searchParameters: {
+        facetFilters: ['tags:en']
+      }
+    },
+    lastUpdatedText: '最后更新时间'
   },
   markdown: {
     theme: {
