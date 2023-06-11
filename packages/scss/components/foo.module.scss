@@ -1,7 +1,7 @@
 @import '../tools';
 @import '../base/var.module';
 
-@include b('yyg-foo') {
+@include b('p-foo') {
   color: $primary-color;
 
   @include e('description') {

@@ -13,7 +13,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 export class ComponentInfo {
   /** 中划线分隔的名称，如：nav-bar */
   lineName
-  /** 中划线分隔的名称（带组件前缀） 如：yyg-nav-bar */
+  /** 中划线分隔的名称（带组件前缀） 如：p-nav-bar */
   lineNameWithPrefix
   /** 首字母小写的驼峰名 如：navBar */
   lowCamelName
@@ -27,9 +27,9 @@ export class ComponentInfo {
   parentPath
   /** 组件所在的路径 */
   fullPath
-  /** 组件的前缀 如：yyg */
+  /** 组件的前缀 如：p */
   prefix
-  /** 组件全名 如：@yyg-demo-ui/xxx */
+  /** 组件全名 如：@p-ui/xxx */
   nameWithLib
 
   constructor(componentName, description, componentType) {

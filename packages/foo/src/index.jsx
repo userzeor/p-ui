@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import { Log } from '@p-ui/utils'
-const NAME = 'yyg-foo'
+const NAME = 'p-foo'
 
 export default defineComponent({
   name: NAME,
@@ -17,7 +17,7 @@ export default defineComponent({
     }
     return () => (
       <div class={NAME}>
-        <h1>yyg-demo-ui Foo</h1>
+        <h1>p-ui Foo</h1>
         <p class={NAME + '__description'}>msg is: {props.msg}</p>
         <el-button type="primary" onClick={onBtnClick}>
           点击我
