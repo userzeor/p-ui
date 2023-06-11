@@ -6,7 +6,7 @@ titleTemplate: Next Generation Frontend Tooling
 
 hero:
   name: PUI
-  text: Vue3企业级中后台组件库
+  text: Vue3中后台组件库
   tagline: 组件库描述 / 为方便而生
   image:
     src: /logo.png

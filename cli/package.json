@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "gen": "node ./index.js create"
+    "gen": "node ./index.js create",
+    "update-md": "node ./src/service/update-compoent-md.js"
   },
   "keywords": [],
   "author": "userzeor",

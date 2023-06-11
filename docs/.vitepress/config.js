@@ -26,7 +26,7 @@ const sidebar = {
 
 export default defineConfig({
   title: 'p-ui',
-  description: 'Vue3企业级中后台组件库',
+  description: 'Vue3中后台组件库',
   lang: 'zh-CN',
   base: '/',
   lastUpdated: true,

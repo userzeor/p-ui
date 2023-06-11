@@ -9,7 +9,6 @@ export const sfcTemplate = (lineNameWithPrefix, lowCamelName) => {
           </template>
 
           <script setup name="${lineNameWithPrefix}">
-          import { defineProps } from 'vue'
 
           defineProps({})
           </script>
@@ -81,38 +80,45 @@ export const scssTemplate = (lineNameWithPrefix) => {
  */
 export const mdTemplate = (componentInfo) => {
   return `
-          # ${componentInfo.upCamelName} ${componentInfo.zhName}
+# ${componentInfo.upCamelName} ${componentInfo.zhName}
 
-          ## 基本使用
+## 基本使用
 
-          <preview path="../demos/${componentInfo.lineName}/${componentInfo.lineName}-1.vue" title="基本使用" description=" "></preview>
+<preview path="../demos/${componentInfo.lineName}/${componentInfo.lineName}-1.vue" title="基本使用" description=" "></preview>
 
-          ## 组件 API
+## ${componentInfo.upCamelName}组件 API
 
-          ### Attributes 属性
+### ${componentInfo.upCamelName} Attributes 属性
 
-          | 参数 | 说明 | 类型 | 可选值 | 默认值 |
-          |  ----  | ----  | ----  | ----  | ----  |
-          |  |  |  |  | |
+| 属性名 | 说明 | 类型 | 可选值 | 默认值 |
+|  ----  | ----  | ----  | ----  | ----  |
+|  |  |  |  | |
 
-          ### Methods 方法
+### ${componentInfo.upCamelName} Methods 方法
 
-          | 方法名 | 说明 | 参数 | 返回值 |
-          |  ----  | ----  | ----  | ----  |
-          |  |  |  |  |
+| 方法名 | 说明 | 参数 | 返回值 |
+|  ----  | ----  | ----  | ----  |
+|  |  |  |  |
 
-          ### Events 事件
 
-          | 事件名 | 说明 | 参数 | 返回值 |
-          |  ----  | ----  | ----  | ----  |
-          |  |  |  |  |
+### ${componentInfo.upCamelName} Events 事件
 
-          ### Slots 插槽
+| 事件名 | 说明 | 参数 | 返回值 |
+|  ----  | ----  | ----  | ----  |
+|  |  |  |  |
 
-          | 插槽名 | 说明 | 参数 |
-          |  ----  | ----  | ----  |
-          |  |  |  |
-        `
+### ${componentInfo.upCamelName} Exposes 抛出
+
+| 名称 | 说明 | 类型 |
+|  ----  | ----  | ----  |
+|  |  |  |
+
+### ${componentInfo.upCamelName} Slots 插槽
+
+| 插槽名 | 说明 | 参数 |
+|  ----  | ----  | ----  |
+|  |  |  |
+`
 }
 
 /**

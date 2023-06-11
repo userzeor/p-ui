@@ -16,7 +16,7 @@ export default {
   ...DefaultTheme,
   Layout() {
     return h(DefaultTheme.Layout, null, {
-      'home-features-after': () => h(HomeSponsors)
+      // 'home-features-after': () => h(HomeSponsors)
       // 'aside-ads-before': () => h(AsideSponsors)
     })
   },

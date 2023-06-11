@@ -104,11 +104,20 @@ importers:
         specifier: workspace:^
         version: link:../utils
 
+  packages/form:
+    dependencies:
+      '@p-ui/utils':
+        specifier: workspace:^
+        version: link:../utils
+
   packages/p-ui:
     dependencies:
       '@p-ui/foo':
         specifier: workspace:^
         version: link:../foo
+      '@p-ui/form':
+        specifier: workspace:^
+        version: link:../form
 
   packages/utils:
     dependencies:

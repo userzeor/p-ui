@@ -1,16 +1,15 @@
 {
-  "name": "@p-ui/p-ui",
+  "name": "@p-ui/form",
   "version": "1.0.0",
-  "description": "组件库入口",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "userzeor",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "@p-ui/foo": "workspace:^",
-    "@p-ui/form": "workspace:^"
+    "@p-ui/utils": "workspace:^"
   }
 }
