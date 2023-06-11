@@ -29,7 +29,10 @@
     "lint": "eslint \"{cli,packages,docs,example}/**/*.{js,ts,vue,jsx,tsx}\" --fix",
     "start:verdaccio": "pnpm verdaccio",
     "add:local": "pnpm adduser --registry http://localhost:4873/",
-    "pub:local": "pnpm publish --registry http://localhost:4873/"
+    "pub:local": "pnpm publish --registry http://localhost:4873/",
+    "update:major": "pnpm version major",
+    "update:minor": "pnpm version minor",
+    "update:patch": "pnpm version patch"
   },
   "keywords": [],
   "author": "userzeor",
