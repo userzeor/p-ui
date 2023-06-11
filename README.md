@@ -2,12 +2,14 @@
 
 ## pnpm + monorepo 搭建组件库
 
+```md
 p-ui/
 |- cli/ // 自动生成组件以及自动根据注释更新文档的一些脚本目录
 |- docs/ // 组件文档目录
 |- example/ // 案例目录
 |- lib/ // 组件库打包后的目录
 |- packages/ // 组件库源代码目录
+```
 
 ## 添加账户
 
@@ -35,17 +37,17 @@ pnpm login --registry <http://xxxxxx>
 
 ### 最后一位（patch）版本号加1
 
-npm version patch
+pnpm version patch
 ​
 
 ### 中间一位（minor）版本号加1
 
-npm version minor
+pnpm version minor
 ​
 
 ### 第一位（major）版本号加1
 
-npm version major
+pnpm version major
 
 ## 版本的格式
 
