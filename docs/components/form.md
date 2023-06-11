@@ -23,7 +23,7 @@
 ### Form Exposes 抛出
   | 名称 | 说明 | 类型 |
   |  ----  | ----  | ----  |
-  | value  |  form的值  |  Object |
+  | formDataObj  |  form的值  |  Object |
 ### Form Slots 插槽
   | 插槽名 | 说明 | 参数 |
   | ------ | ---- | ---- |

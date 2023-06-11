@@ -12,7 +12,7 @@
   @event click | 点击 | function | {} | {}
   @prop formInfo | 表单信息 | Object | {} | {}
   @method submit | 提交数据 | Object | void
-  @exposes value | form的值 | Object
+  @exposes formDataObj | form的值 | Object
   @slot 上传 | form的上传组件插槽 | Object
 */
 defineProps({})

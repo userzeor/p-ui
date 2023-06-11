@@ -1,5 +1,6 @@
 # 忽略目录下文件的语法检查
 dist
+lib
 docs/.vitepress/dist
 docs/.vitepress/cache
 example/dist

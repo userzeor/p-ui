@@ -4,7 +4,7 @@
   "description": "组件库入口",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rimraf ../../lib && vite build"
   },
   "keywords": [],
   "author": "userzeor",
@@ -12,5 +12,8 @@
   "dependencies": {
     "@p-ui/foo": "workspace:^",
     "@p-ui/form": "workspace:^"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.1"
   }
 }
