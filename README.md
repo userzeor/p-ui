@@ -9,6 +9,16 @@ p-ui/
 |- lib/ // 组件库打包后的目录
 |- packages/ // 组件库源代码目录
 
+## 添加账户
+
+### <http://localhost:4873/> 代表启动的私服地址
+
+pnpm adduser --registry <http://localhost:4873/>
+
+## 发布组件库到私服
+
+pnpm publish --registry <http://localhost:4873/>
+
 ## 指定安装来源
 
 pnpm install --registry <http://localhost:4873/>
