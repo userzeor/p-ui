@@ -5,6 +5,7 @@
 <script setup name="p-table">
 /**
  @prop tableConfig | table配置项 | Object | {} | {}
+ @prop tableitem | table配置项 | Object | {} | {}
  */
 defineProps({})
 </script>
