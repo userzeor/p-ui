@@ -1,0 +1,15 @@
+{
+  "name": "@p-ui/foo",
+  "version": "1.0.0",
+  "description": "示例组件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "userzeor",
+  "license": "ISC",
+  "dependencies": {
+    "@p-ui/utils": "workspace:^"
+  }
+}

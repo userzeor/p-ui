@@ -1,0 +1,10 @@
+@import '../tools';
+@import '../base/var.module';
+
+@include b('p-foo') {
+  color: $primary-color;
+
+  @include e('description') {
+    color: #333333;
+  }
+}

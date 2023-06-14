@@ -1,0 +1,15 @@
+{
+  "name": "@p-ui/utils",
+  "version": "1.0.0",
+  "description": "通用工具函数",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "userzeor",
+  "license": "ISC",
+  "dependencies": {
+    "mitt": "^3.0.0"
+  }
+}

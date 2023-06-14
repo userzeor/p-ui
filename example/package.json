@@ -1,0 +1,19 @@
+{
+  "name": "@p-ui/example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev:dev": "vite --mode dev",
+    "dev:uat": "vite --mode uat",
+    "dev:prod": "vite --mode prod",
+    "build:dev": "vite build --mode dev",
+    "build:uat": "vite build --mode uat",
+    "build:prod": "vite build --mode prod",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@p-ui/p-ui": "workspace:^",
+    "element-plus": "^2.3.6"
+  }
+}

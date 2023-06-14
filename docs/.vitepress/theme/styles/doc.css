@@ -1,0 +1,25 @@
+@media (min-width: 1440px) {
+  .doc-layout .VPSidebar,
+  .doc-layout .VPNavBar.has-sidebar div.title {
+    padding-left: 32px;
+    width: var(--vp-sidebar-width);
+  }
+  .doc-layout .VPNavBar.has-sidebar .content {
+    padding-right: 32px;
+    padding-left: var(--vp-sidebar-width);
+  }
+  .doc-layout .VPContent.has-sidebar {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.doc-layout .VPDoc.has-aside .content-container {
+  max-width: none;
+  padding-left: var(--vp-sidebar-width);
+}
+
+.doc-layout .vp-doc table {
+  display: table;
+  width: 100%;
+}

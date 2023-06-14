@@ -1,0 +1,20 @@
+{
+  "name": "@p-ui/p-ui",
+  "version": "1.0.0",
+  "description": "组件库入口",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf ../../lib && vite build"
+  },
+  "keywords": [],
+  "author": "userzeor",
+  "license": "ISC",
+  "dependencies": {
+    "@p-ui/foo": "workspace:^",
+    "@p-ui/form": "workspace:^",
+    "@p-ui/table": "workspace:^"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.1"
+  }
+}

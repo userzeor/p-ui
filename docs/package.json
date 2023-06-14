@@ -1,0 +1,24 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "serve": "vitepress serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "vitepress": "1.0.0-beta.1"
+  },
+  "dependencies": {
+    "@p-ui/p-ui": "workspace:^",
+    "@vitepress-demo-preview/component": "^2.3.0",
+    "@vitepress-demo-preview/plugin": "^1.1.11",
+    "element-plus": "^2.3.6"
+  }
+}
