@@ -46,18 +46,17 @@ import Upload from './components/Upload.vue'
 import Slot from './components/Slot.vue'
 import BtnGroup from './components/BtnGroup.vue'
 
-import { deepAssign } from '@p-ui/utils'
-import { isArray } from '@p-ui/utils'
+import { deepAssign, isArray } from '@p-ui/utils'
 import { useVModel } from '@vueuse/core'
 import { useExposeRef } from '@p-ui/hook'
 
 const emit = defineEmits(['update:modelValue', 'submit', 'modelChange'])
-/** 
+/**
   @prop v-model/modelValue | form表单绑定的数据 | Object | {} | {}
-  @prop options | form表单每个控件的配置 | Array | form表单每一项的可选类型: 
-    input radio checkbox select 
-    datePicker timePicker timeSelect inputNumber 
-    colorPicker rate slider transfer 
+  @prop options | form表单每个控件的配置 | Array | form表单每一项的可选类型:
+    input radio checkbox select
+    datePicker timePicker timeSelect inputNumber
+    colorPicker rate slider transfer
     upload cascader autocomplete hidden
     | []
   @prop formConfig | form表单本身的配置 | Object | {
@@ -125,7 +124,7 @@ const { proxy } = getCurrentInstance()
 const defaultFormConfig = {
   form: {},
   row: {
-    //栅格间隔
+    // 栅格间隔
     gutter: 16
   },
   submitBtn: {},
@@ -153,7 +152,7 @@ const gutter = computed(() => {
 // 动态添加事件，只有传入btnGroup才监听submit事件
 const eventBtnGroup = computed(() => {
   return (item) => {
-    if (item.type == 'btnGroup') {
+    if (item.type === 'btnGroup') {
       return 'submit'
     } else {
       return ''
@@ -183,10 +182,6 @@ const setRef = (el) => {
   }
 }
 
-const formData = computed(() => {
-  console.log(props.modelValue)
-})
-
 watch(
   () => props.modelValue,
   (newVal) => {
@@ -200,7 +195,7 @@ onMounted(() => {
   exposeObj = useExposeRef(proxy, exposeObj)
   comRefs.value.forEach((element) => {
     const key = Object.keys(element)
-    if (key.length != 0) {
+    if (key.length !== 0) {
       exposeObj[key] = element[key]
     }
   })
