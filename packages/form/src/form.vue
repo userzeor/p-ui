@@ -25,7 +25,7 @@
 </template>
 
 <script setup name="p-form">
-import { shallowReactive, getCurrentInstance, computed, ref, reactive, onMounted } from 'vue'
+import { shallowReactive, getCurrentInstance, computed, ref, reactive, onMounted, watch } from 'vue'
 import AutoComplete from './components/AutoComplete.vue'
 import Cascader from './components/Cascader.vue'
 import Checkbox from './components/Checkbox.vue'
@@ -51,7 +51,7 @@ import { isArray } from '@p-ui/utils'
 import { useVModel } from '@vueuse/core'
 import { useExposeRef } from '@p-ui/hook'
 
-const emit = defineEmits(['update:modelValue', 'submit'])
+const emit = defineEmits(['update:modelValue', 'submit', 'modelChange'])
 /** 
   @prop v-model/modelValue | form表单绑定的数据 | Object | {} | {}
   @prop options | form表单每个控件的配置 | Array | form表单每一项的可选类型: 
@@ -182,6 +182,18 @@ const setRef = (el) => {
     comRefs.value.push(el)
   }
 }
+
+const formData = computed(() => {
+  console.log(props.modelValue)
+})
+
+watch(
+  () => props.modelValue,
+  (newVal) => {
+    emit('modelChange', newVal)
+  },
+  { immediate: true, deep: true }
+)
 
 // 抛出form实例以及组件提供的ref实例
 onMounted(() => {

@@ -5,6 +5,7 @@
     :form-config="formConfig"
     :options="options"
     @submit="formSubmit"
+    @modelChange="modelChange"
   >
     <template #myInput>
       <div>dsdds</div>
@@ -204,6 +205,10 @@ const uForm = ref(null)
 
 const formSubmit = (valid) => {
   console.log(formModel)
+}
+
+const modelChange = (val) => {
+  console.log(val)
 }
 
 onMounted(() => {
