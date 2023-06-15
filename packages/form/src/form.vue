@@ -183,10 +183,7 @@ const setRef = (el) => {
   }
 }
 
-const formData = computed(() => {
-  console.log(props.modelValue)
-})
-
+// 监听formModel的变化，并传给父组件
 watch(
   () => props.modelValue,
   (newVal) => {
