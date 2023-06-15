@@ -1,5 +1,5 @@
 {
-  "name": "@p-ui/form",
+  "name": "@p-ui/table",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@p-ui/hook": "workspace:^",
-    "@p-ui/utils": "workspace:^"
+    "@p-ui/hook": "workspace:^"
   }
 }

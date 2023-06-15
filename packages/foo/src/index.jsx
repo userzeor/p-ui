@@ -1,5 +1,4 @@
 import { defineComponent } from 'vue'
-import { Log } from '@p-ui/utils'
 const NAME = 'p-foo'
 
 export default defineComponent({
@@ -11,7 +10,6 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    Log(props, context)
     const onBtnClick = () => {
       console.log('点击按钮测试', props.msg)
     }

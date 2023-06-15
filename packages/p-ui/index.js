@@ -1,8 +1,9 @@
+import Table from '@p-ui/table'
 import Form from '@p-ui/form'
 import Foo from '@p-ui/foo'
 import '../scss/index.scss'
 
-const components = [Foo, Form] // components
+const components = [Foo, Form, Table] // components
 
 // 全局动态添加组件
 const install = (app) => {

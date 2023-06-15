@@ -25,13 +25,16 @@ export const initComponent = (componentInfo) =>
         // 4. 安装 utils 依赖
         execCmd(`cd ${componentInfo.fullPath} && pnpm install @${Config.COMPONENT_LIB_NAME}/utils`)
 
-        // 5. 创建组件 src 目录
+        // 5. 安装 hook 依赖
+        execCmd(`cd ${componentInfo.fullPath} && pnpm install @${Config.COMPONENT_LIB_NAME}/hook`)
+
+        // 6. 创建组件 src 目录
         fs.mkdirSync(path.resolve(componentInfo.fullPath, 'src'))
 
-        // 6. 创建 src/xxx.vue 或s src/xxx.jsx
+        // 7. 创建 src/xxx.vue 或s src/xxx.jsx
         createSrcIndex(componentInfo)
 
-        // 7. 创建 index.js
+        // 8. 创建 index.js
         createIndex(componentInfo)
 
         g('component init success')

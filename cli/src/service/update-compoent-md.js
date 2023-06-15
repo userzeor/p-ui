@@ -48,35 +48,35 @@ const updateCompoentMd = (mdPath) => {
     // 获取prop属性的注释
     const matePropStrArr = allNoteStr.match(/(?<=@prop)(.|\s)*?(?=@|.*$)/g)
     const propHeaderText = `
-  | 参数 | 说明 | 类型 | 可选值 | 默认值 |
+  | <div style="width: 100px">属性名</div> | 说明 | <div style="width: 100px">类型</div> | <div style="width: 100px">可选值</div> | <div style="width: 100px">默认值</div> |
   | ---- | ---- | ---- | ------ | ------ |
   `
     const propStr = generateMdText(propHeaderText, matePropStrArr)
     // 获取method方法的注释
     const mateMethodStrArr = allNoteStr.match(/(?<=@method)(.|\s)*?(?=@|.*$)/g)
     const methodHeaderText = `
-  | 方法名 | 说明 | 参数 | 返回值 |
+  | <div style="width: 100px">方法名</div> | 说明 | <div style="width: 100px">参数</div> | <div style="width: 100px">返回值</div> |
   | ------ | ---- | ---- | ------ |
   `
     const methodStr = generateMdText(methodHeaderText, mateMethodStrArr)
     // 获取event事件的注释
     const mateEventStrArr = allNoteStr.match(/(?<=@event)(.|\s)*?(?=@|.*$)/g)
     const eventHeaderText = `
-  | 事件名 | 说明 | 参数 | 返回值 |
+  | <div style="width: 100px">事件名</div> | 说明 | <div style="width: 100px">类型</div> | <div style="width: 100px">返回值</div> |
   | ------ | ---- | ---- | ------ |
   `
     const eventStr = generateMdText(eventHeaderText, mateEventStrArr)
     // 获取exposes抛出的注释
     const mateExposesStrArr = allNoteStr.match(/(?<=@exposes)(.|\s)*?(?=@|.*$)/g)
     const exposesHeaderText = `
-  | 名称 | 说明 | 类型 |
+  | <div style="width: 100px">名称</div> | 说明 | <div style="width: 100px">类型</div> |
   |  ----  | ----  | ----  |
   `
     const exposesStr = generateMdText(exposesHeaderText, mateExposesStrArr)
     // 获取slot插槽的注释
     const mateSlotStrArr = allNoteStr.match(/(?<=@slot)(.|\s)*?(?=@|.*$)/g)
     const slotHeaderText = `
-  | 插槽名 | 说明 | 参数 |
+  | <div style="width: 100px">插槽名</div> | 说明 | <div style="width: 100px">返回值</div> |
   | ------ | ---- | ---- |
   `
     const slotStr = generateMdText(slotHeaderText, mateSlotStrArr)
@@ -112,7 +112,31 @@ const generateMdText = (mdHeaderText, mateMdStrArr) => {
     const propParmasList = val.split('|')
     const lastforIndex = propParmasList.length - 1
     propParmasList.forEach((item, i) => {
-      const itemText = item.replace(/\n/g, '<br/>')
+      // 对json数据做格式化处理
+      const a = item
+      const itemText =
+        // '<pre>' +
+        item
+          .replace(/\n/g, '<br/>')
+          .replace(/[\r\n]/g, '')
+          .replace(/(<)?^\s*\{[\s\S]*\}\s*$(>)?/g, function (match, p1, p2) {
+            console.log(match)
+            return (
+              (p1 ? p1 : '') +
+              '<pre>' +
+              JSON.stringify(match, null, 4).replace(/^\"|\"$/g, '') +
+              '</pre>' +
+              (p2 ? p2 : '')
+            )
+          })
+      // .replace(/\n/g, '<br/>')
+      // .replace(/\{.*?\}/g, function (match) {
+      //   const jsonObject = JSON.parse(match)
+      //   console.log(jsonObject)
+      //   return '`' + JSON.stringify(jsonObject, null, 4) + '`'
+      // })
+      // '</pre>'
+      // .replace(/[\r\n]/g, '')
       if (i === lastforIndex) {
         mdStr += `| ${itemText} |`
       } else {

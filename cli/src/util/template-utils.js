@@ -103,7 +103,7 @@ export const mdTemplate = (componentInfo) => {
 
 ### ${componentInfo.upCamelName} Events 事件
 
-| 事件名 | 说明 | 参数 | 返回值 |
+| 事件名 | 说明 | 类型 | 返回值 |
 |  ----  | ----  | ----  | ----  |
 |  |  |  |  |
 
@@ -115,7 +115,7 @@ export const mdTemplate = (componentInfo) => {
 
 ### ${componentInfo.upCamelName} Slots 插槽
 
-| 插槽名 | 说明 | 参数 |
+| 插槽名 | 说明 | 返回值 |
 |  ----  | ----  | ----  |
 |  |  |  |
 `

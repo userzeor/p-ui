@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@p-ui/foo": "workspace:^",
-    "@p-ui/form": "workspace:^"
+    "@p-ui/form": "workspace:^",
+    "@p-ui/table": "workspace:^"
   },
   "devDependencies": {
     "rimraf": "^5.0.1"
