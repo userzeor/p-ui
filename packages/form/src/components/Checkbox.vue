@@ -2,7 +2,7 @@
   <div class="com-container">
     <el-checkbox-group v-model="formModel" v-bind="itemConfig.props">
       <el-checkbox
-        v-for="(opItem, opIndex) in useOption(itemConfig)"
+        v-for="(opItem, opIndex) in opList"
         :key="opIndex"
         :label="itemConfig.opCustomKey ? opItem[itemConfig.opCustomKey['value']] : opItem.value"
         >{{
@@ -14,10 +14,9 @@
 </template>
 
 <script setup name="Checkbox">
-import { reactive, getCurrentInstance, onMounted } from 'vue'
+import { ref, reactive, getCurrentInstance, onMounted } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { useExposeRef } from '@p-ui/hook'
-import { useOption } from '@p-ui/hook'
 const emit = defineEmits(['update:modelValue'])
 const props = defineProps({
   /** 传入的v-model */
@@ -43,8 +42,21 @@ const formModel = useVModel(props, 'modelValue', emit)
 /** 当前组件实例 */
 const { proxy } = getCurrentInstance()
 
+/** 初始化字典项值 */
+const opList = ref([])
+const initDictList = () => {
+  if (!props.itemConfig.dict) {
+    /** 不用字典项 */
+    opList.value = props.itemConfig.options
+  } else {
+    /** 用字典项 */
+    opList.value = proxy.useDict(props.itemConfig?.dict)[props.itemConfig?.dict].value
+  }
+}
+
 /** 抛出ref实例 */
 onMounted(() => {
+  initDictList()
   exposeObj = useExposeRef(proxy, exposeObj)
 })
 
