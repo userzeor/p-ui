@@ -1,3 +1,8 @@
+---
+layout: doc
+layoutClass: doc-layout
+---
+
 # Dialog 弹框组件
 
 ## 基本使用

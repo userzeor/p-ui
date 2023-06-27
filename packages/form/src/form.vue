@@ -52,12 +52,12 @@ import { useVModel } from '@vueuse/core'
 import { useExposeRef } from '@p-ui/hook'
 
 const emit = defineEmits(['update:modelValue', 'submit', 'modelChange'])
-/** 
+/**
   @prop v-model/modelValue | form表单绑定的数据 | Object | {} | {}
-  @prop options | form表单每个控件的配置 | Array | form表单每一项的可选类型: 
-    input radio checkbox select 
-    datePicker timePicker timeSelect inputNumber 
-    colorPicker rate slider transfer 
+  @prop options | form表单每个控件的配置 | Array | form表单每一项的可选类型:
+    input radio checkbox select
+    datePicker timePicker timeSelect inputNumber
+    colorPicker rate slider transfer
     upload cascader autocomplete hidden
     | []
   @prop formConfig | form表单本身的配置 | Object | {
@@ -183,10 +183,7 @@ const setRef = (el) => {
   }
 }
 
-const formData = computed(() => {
-  console.log(props.modelValue)
-})
-
+// 监听formModel的变化，并传给父组件
 watch(
   () => props.modelValue,
   (newVal) => {
@@ -200,7 +197,7 @@ onMounted(() => {
   exposeObj = useExposeRef(proxy, exposeObj)
   comRefs.value.forEach((element) => {
     const key = Object.keys(element)
-    if (key.length != 0) {
+    if (key.length != 0 && element[key]) {
       exposeObj[key] = element[key]
     }
   })

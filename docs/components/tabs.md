@@ -1,3 +1,8 @@
+---
+layout: doc
+layoutClass: doc-layout
+---
+
 # Tabs 标签页
 
 ## 基本使用

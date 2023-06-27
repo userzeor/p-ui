@@ -102,10 +102,10 @@ const dialogData = {
     props.dialogObject.width === 'big'
       ? '1000'
       : props.dialogObject.width === 'middle'
-      ? '720'
-      : props.dialogObject.width === 'small'
-      ? '560'
-      : '100%',
+        ? '720'
+        : props.dialogObject.width === 'small'
+          ? '560'
+          : '100%',
   successBtnText: props.dialogObject.successBtnText || '确定',
   closeBtnText: props.dialogObject.closeBtnText || '取消',
   draggable: props.dialogObject.draggable || false,

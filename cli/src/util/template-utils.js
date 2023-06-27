@@ -80,6 +80,11 @@ export const scssTemplate = (lineNameWithPrefix) => {
  */
 export const mdTemplate = (componentInfo) => {
   return `
+---
+layout: doc
+layoutClass: doc-layout
+---
+
 # ${componentInfo.upCamelName} ${componentInfo.zhName}
 
 ## 基本使用
