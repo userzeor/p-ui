@@ -3,7 +3,9 @@ import Dialog from '@p-ui/dialog'
 import Table from '@p-ui/table'
 import Form from '@p-ui/form'
 import Foo from '@p-ui/foo'
+// import component end
 import '../scss/index.scss'
+import '@p-ui/utils'
 
 const components = [Foo, Form, Table, Dialog, Tabs] // components
 
