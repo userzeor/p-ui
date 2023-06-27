@@ -3,11 +3,11 @@ import Dialog from '@p-ui/dialog'
 import Table from '@p-ui/table'
 import Form from '@p-ui/form'
 import Foo from '@p-ui/foo'
+import Tree from '@p-ui/tree'
 // import component end
 import '../scss/index.scss'
-import '@p-ui/utils'
 
-const components = [Foo, Form, Table, Dialog, Tabs] // components
+const components = [Foo, Form, Table, Dialog, Tabs, Tree] // components
 
 // 全局动态添加组件
 const install = (app) => {

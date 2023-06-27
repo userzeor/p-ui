@@ -1,8 +1,5 @@
 <template>
-  <el-button
-    text
-    @click="handleDialogs"
-  > click to open the Dialog </el-button>
+  <el-button text @click="handleDialogs"> click to open the Dialog </el-button>
   <p-dialog
     @dialogClose="dialogCloseDef"
     @dialogSuccess="dialogSuccessDef"

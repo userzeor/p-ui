@@ -9,14 +9,8 @@
     >
       <slot> </slot>
       <template #footer>
-        <span
-          class="dialog-footer"
-          v-if="dialogData.dialogIsFooter"
-        >
-          <el-button
-            type="primary"
-            @click="handleClose"
-          >{{ dialogData.successBtnText }}</el-button>
+        <span class="dialog-footer" v-if="dialogData.dialogIsFooter">
+          <el-button type="primary" @click="handleClose">{{ dialogData.successBtnText }}</el-button>
           <el-button @click="handleSuccess">
             {{ dialogData.closeBtnText }}
           </el-button>
@@ -43,7 +37,7 @@ const emits = defineEmits(['dialogSuccess', 'dialogClose'])
  */
 const props = defineProps({
   dialogObject: {
-    default () {
+    default() {
       return {}
     },
     type: Object
@@ -60,8 +54,8 @@ const dialogData = {
     props.dialogObject.width === 'big'
       ? '1000'
       : props.dialogObject.width === 'middle'
-        ? '720'
-        : '560',
+      ? '720'
+      : '560',
   successBtnText: props.dialogObject.successBtnText || '确定',
   closeBtnText: props.dialogObject.closeBtnText || '取消',
   draggable: props.dialogObject.draggable || false,
