@@ -14,7 +14,8 @@
     "@p-ui/foo": "workspace:^",
     "@p-ui/form": "workspace:^",
     "@p-ui/table": "workspace:^",
-    "@p-ui/tabs": "workspace:^"
+    "@p-ui/tabs": "workspace:^",
+    "@p-ui/upload": "workspace:^"
   },
   "devDependencies": {
     "rimraf": "^5.0.1"
