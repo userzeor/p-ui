@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "组件库入口",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "build": "rimraf ../../lib && vite build"
+    "build": "rimraf ../../lib && vite build && node ./buildUtils.js"
   },
   "keywords": [],
   "author": "userzeor",
@@ -15,7 +16,8 @@
     "@p-ui/form": "workspace:^",
     "@p-ui/table": "workspace:^",
     "@p-ui/tabs": "workspace:^",
-    "@p-ui/tree": "workspace:^"
+    "@p-ui/tree": "workspace:^",
+    "@p-ui/utils": "workspace:^"
   },
   "devDependencies": {
     "rimraf": "^5.0.1"

@@ -1,6 +1,7 @@
 import { defineConfig, build } from 'vite'
 import * as path from 'path'
 import fs from 'fs'
+
 // 最新 node 核心包的导入写法
 import { fileURLToPath } from 'node:url'
 import { dirname } from 'node:path'
@@ -9,8 +10,8 @@ import { dirname } from 'node:path'
 // 获取 __dirname 的 ESM 写法
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-const entryDir = path.resolve(__dirname, './src')
-const outputDir = path.resolve(__dirname, '../../utilsLib')
+const entryDir = path.resolve(__dirname, './node_modules/@p-ui/utils/src')
+const outputDir = path.resolve(__dirname, '../../lib/utils')
 
 const buildFun = async (name) => {
   const funName = getFunName(name)
@@ -49,7 +50,6 @@ const buildUtils = () => {
     // 构建模块方法
     await buildFun(name)
   })
-  console.log(funs)
 }
 
 // 执行打包
