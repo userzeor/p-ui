@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "description": "通用工具函数",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rimraf ../../utilsLib && node ./build.js"
   },
   "keywords": [],
   "author": "userzeor",
   "license": "ISC",
   "dependencies": {
     "mitt": "^3.0.0"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.1"
   }
 }
