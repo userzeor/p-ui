@@ -11,7 +11,7 @@ import { dirname } from 'node:path'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const entryDir = path.resolve(__dirname, './node_modules/@p-ui/utils/src')
-const outputDir = path.resolve(__dirname, '../../lib/utils')
+const outputDir = path.resolve(__dirname, '../../lib/utils/src')
 
 const buildFun = async (name) => {
   const funName = getFunName(name)
@@ -52,5 +52,23 @@ const buildUtils = () => {
   })
 }
 
+const buildUtilsIndex = async () => {
+  await build(
+    defineConfig({
+      build: {
+        lib: {
+          entry: path.resolve(__dirname, './node_modules/@p-ui/utils/index.js'),
+          name: 'index',
+          fileName: 'index',
+          formats: ['es', 'umd']
+        },
+        outDir: path.resolve('../../lib/', './utils')
+      }
+    })
+  )
+}
+
 // 执行打包
 buildUtils()
+// 打包入口
+buildUtilsIndex()
