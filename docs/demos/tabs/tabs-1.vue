@@ -15,7 +15,7 @@
   </p-tabs>
 </template>
 
-<script setup >
+<script setup>
 import { reactive } from 'vue'
 const tabList = reactive([
   {

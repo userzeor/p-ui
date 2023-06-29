@@ -1,19 +1,20 @@
 <template>
   <div>
-        <el-input v-model="filterText" placeholder="请输入" v-if="treeObject.treeFilter" />
-        <el-tree
-         ref="treeRef"
-        :data="treeData"
-        :props="treeObject.defaultProps"
-        :show-checkbox="treeObject.showCheckbox"
-        :node-key="treeObject.nodeKey"
-        :default-expand-all="treeObject.defaultExpandAll"
-        :default-expanded-keys="treeObject.defaultExpandedKeys"
-        :default-checked-keys="treeObject.defaultCheckedKeys"
-        :accordion="treeObject.accordion"
-        :filter-node-method="filterNode"
-        @node-click="handleNodeClick" />
-    </div>
+    <el-input v-model="filterText" placeholder="请输入" v-if="treeObject.treeFilter" />
+    <el-tree
+      ref="treeRef"
+      :data="treeData"
+      :props="treeObject.defaultProps"
+      :show-checkbox="treeObject.showCheckbox"
+      :node-key="treeObject.nodeKey"
+      :default-expand-all="treeObject.defaultExpandAll"
+      :default-expanded-keys="treeObject.defaultExpandedKeys"
+      :default-checked-keys="treeObject.defaultCheckedKeys"
+      :accordion="treeObject.accordion"
+      :filter-node-method="filterNode"
+      @node-click="handleNodeClick"
+    />
+  </div>
 </template>
 
 <script setup name="p-tree">
