@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@p-ui/dialog": "workspace:^",
+    "@p-ui/field": "workspace:^",
     "@p-ui/foo": "workspace:^",
     "@p-ui/form": "workspace:^",
     "@p-ui/table": "workspace:^",

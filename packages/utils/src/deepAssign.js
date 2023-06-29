@@ -1,6 +1,10 @@
 /**
- * @returns {Object}
  * @description 深度合并多个对象的方法
+ * @example deepAssign(Object, Object, ...)
+ * deepAssign({}, { a: 1 }, { b: 3 })
+ * @return {Object}
+ * @param {} json 对象
+ * @param ...args 是一个参数列表表示可以传多个参数对象
  */
 export const deepAssign = function () {
   let len = arguments.length,

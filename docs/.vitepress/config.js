@@ -13,7 +13,8 @@ const sidebar = {
       text: '指南',
       items: [
         { text: '组件库介绍', link: '/guide/' },
-        { text: '快速开始', link: '/guide/quickstart' }
+        { text: '快速开始', link: '/guide/quickstart' },
+        { text: 'js工具包', link: '/guide/jsUtils' }
       ]
     }
   ],

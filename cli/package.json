@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "gen": "node ./index.js create",
-    "update-md": "node ./src/service/update-compoent-md.js"
+    "update-md": "node ./src/service/update-compoent-md.js",
+    "update-utils-md": "node ./src/service/update-utils-md.js"
   },
   "keywords": [],
   "author": "userzeor",

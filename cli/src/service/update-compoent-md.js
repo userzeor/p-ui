@@ -156,7 +156,3 @@ export const updateMd = () => {
 }
 
 updateMd()
-// updateCompoentMd()
-
-// /\/\/ @prop(.|\s)*?\/\/ end/g
-// val.replaceAll(/\/\/ @prop|\/\/ end|\n/g, '').replaceAll(/^\s+|\s+$/g, '')

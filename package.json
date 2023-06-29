@@ -26,6 +26,7 @@
     "docs:preview": "pnpm run -C docs serve",
     "gen:component": "pnpm run -C cli gen",
     "update:md": "pnpm run -C cli update-md",
+    "update:utils-md": "pnpm run -C cli update-utils-md",
     "lint": "eslint \"{cli,packages,docs,example}/**/*.{js,ts,vue,jsx,tsx}\" --fix",
     "start:verdaccio": "pnpm verdaccio",
     "add:local": "pnpm adduser --registry http://localhost:4873/",
