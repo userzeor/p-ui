@@ -21,8 +21,7 @@
     "@p-ui/tree": "workspace:^",
     "@p-ui/upload": "workspace:^",
     "@p-ui/utils": "workspace:^",
-    "@p-ui/directive": "workspace:^",
-    "@p-ui/wang-editor": "workspace:^"
+    "@p-ui/directive": "workspace:^"
   },
   "devDependencies": {
     "rimraf": "^5.0.1"
