@@ -17,9 +17,10 @@
     "@p-ui/form": "workspace:^",
     "@p-ui/table": "workspace:^",
     "@p-ui/tabs": "workspace:^",
-    "@p-ui/upload": "workspace:^",
     "@p-ui/tree": "workspace:^",
-    "@p-ui/utils": "workspace:^"
+    "@p-ui/upload": "workspace:^",
+    "@p-ui/utils": "workspace:^",
+    "@p-ui/directive": "workspace:^"
   },
   "devDependencies": {
     "rimraf": "^5.0.1"
