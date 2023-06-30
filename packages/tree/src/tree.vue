@@ -19,7 +19,6 @@
 
 <script setup name="p-tree">
 import { ref, watch, defineProps } from 'vue'
-import { ElTree } from 'element-plus'
 const filterText = ref('')
 const emits = defineEmits(['nodeClickBack'])
 const props = defineProps({

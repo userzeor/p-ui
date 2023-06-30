@@ -15,6 +15,7 @@
     "@p-ui/field": "workspace:^",
     "@p-ui/foo": "workspace:^",
     "@p-ui/form": "workspace:^",
+    "@p-ui/quill-editor": "workspace:^",
     "@p-ui/table": "workspace:^",
     "@p-ui/tabs": "workspace:^",
     "@p-ui/tree": "workspace:^",

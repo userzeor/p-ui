@@ -6,5 +6,6 @@ export const components = [
   { text: 'Tabs 标签页', link: '/components/tabs' },
   { text: 'Tree 树形组件', link: '/components/tree' },
   { text: 'Field 展示字段组件', link: '/components/field' },
-  { text: 'Upload 上传', link: '/components/upload' }
+  { text: 'Upload 上传', link: '/components/upload' },
+  { text: 'QuillEditor 富文本编辑器', link: '/components/quill-editor' }
 ] // end

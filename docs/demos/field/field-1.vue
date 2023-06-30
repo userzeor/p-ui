@@ -1,5 +1,9 @@
 <template>
-  <p-field :fieldObject="fieldObject" :fieldData="fieldData" @backTextMessage="backTextMessage"></p-field>
+  <p-field
+    :fieldObject="fieldObject"
+    :fieldData="fieldData"
+    @backTextMessage="backTextMessage"
+  ></p-field>
 </template>
 
 <script setup>
@@ -17,42 +21,40 @@ const fieldObject = reactive({
   rows: '5'
 })
 
-const fieldData = reactive(
-  [
-    {
-      label: '标题1',
-      value: '内容1内容1内容1内容1内容1内容1'
-    },
-    {
-      label: '标题2',
-      value: '内容2'
-    },
-    {
-      label: '标题3',
-      value: '内容3'
-    },
-    {
-      label: '标题4',
-      value: '内容4'
-    },
-    {
-      label: '标题5',
-      value: '内容5'
-    },
-    {
-      label: '标题6',
-      value: '内容6'
-    },
-    {
-      label: '标题7',
-      value: '内容7'
-    },
-    {
-      label: '标题8',
-      value: '内容8'
-    }
-  ]
-)
+const fieldData = reactive([
+  {
+    label: '标题1',
+    value: '内容1内容1内容1内容1内容1内容1'
+  },
+  {
+    label: '标题2',
+    value: '内容2'
+  },
+  {
+    label: '标题3',
+    value: '内容3'
+  },
+  {
+    label: '标题4',
+    value: '内容4'
+  },
+  {
+    label: '标题5',
+    value: '内容5'
+  },
+  {
+    label: '标题6',
+    value: '内容6'
+  },
+  {
+    label: '标题7',
+    value: '内容7'
+  },
+  {
+    label: '标题8',
+    value: '内容8'
+  }
+])
 
 const backTextMessage = (val) => {
   console.log(val)
