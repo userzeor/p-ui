@@ -8,6 +8,8 @@ import Field from '@p-ui/field'
 import QuillEditor from '@p-ui/quill-editor'
 // import component end
 import '../scss/index.scss'
+// 注册指令
+import directives from '@p-ui/directive'
 
 const components = [Foo, Form, Table, Dialog, Tabs, Tree, Field, QuillEditor] // components
 
@@ -15,6 +17,15 @@ const components = [Foo, Form, Table, Dialog, Tabs, Tree, Field, QuillEditor] //
 const install = (app) => {
   components.forEach((component) => {
     app.component(component.name, component)
+  })
+  // 全局动态注册指令
+  directives.forEach((directive) => {
+    for (const key in directive) {
+      if (Object.hasOwnProperty.call(directive, key)) {
+        const val = directive[key]
+        app.directive(key, val)
+      }
+    }
   })
 }
 

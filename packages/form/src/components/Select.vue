@@ -48,7 +48,7 @@ const initDictList = () => {
     opList.value = props.itemConfig.options
   } else {
     /** 用字典项 */
-    opList.value = proxy.useDict(props.itemConfig?.dict)[props.itemConfig?.dict].value
+    opList = proxy.useDict(props.itemConfig?.dict)[props.itemConfig?.dict]
   }
 }
 

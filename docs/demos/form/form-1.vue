@@ -42,12 +42,12 @@ const options = reactive([
       title: '用户名',
       field: 'userName',
       col: {
-        span: 4
+        span: 24
       },
       props: {
         placeholder: '你好，请输入！',
-        ref: 'uInputElm',
-        disabled: true
+        ref: 'uInputElm'
+        // disabled: true
       }
     },
     {
