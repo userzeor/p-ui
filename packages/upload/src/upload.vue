@@ -1,26 +1,26 @@
 <template>
   <div>
     <el-upload
-    v-model:file-list="fileList"
-    :class="{ hide: hideUpload }"
-    :action="uploadObject.uploadUrl"
-    :multiple="uploadObject.multiple || false"
-    :on-preview="handlePreview"
-    :on-remove="handleRemove"
-    :before-remove="beforeRemove"
-    :limit="uploadObject.limit"
-    :on-exceed="handleExceed"
-    :before-upload="beforeAvatarUpload"
-    :list-type="uploadObject.type"
-  >
-    <el-icon class="avatar-uploader-icon">
-      <Plus />
-    </el-icon>
-  </el-upload>
+      v-model:file-list="fileList"
+      :class="{ hide: hideUpload }"
+      :action="uploadObject.uploadUrl"
+      :multiple="uploadObject.multiple || false"
+      :on-preview="handlePreview"
+      :on-remove="handleRemove"
+      :before-remove="beforeRemove"
+      :limit="uploadObject.limit"
+      :on-exceed="handleExceed"
+      :before-upload="beforeAvatarUpload"
+      :list-type="uploadObject.type"
+    >
+      <el-icon class="avatar-uploader-icon">
+        <Plus />
+      </el-icon>
+    </el-upload>
 
-  <el-dialog v-model="dialogVisible">
-    <img w-full :src="dialogImageUrl" alt="Preview Image" />
-  </el-dialog>
+    <el-dialog v-model="dialogVisible">
+      <img w-full :src="dialogImageUrl" alt="Preview Image" />
+    </el-dialog>
   </div>
 </template>
 
@@ -90,31 +90,31 @@ const beforeAvatarUpload = (rawFile) => {
 
 <style scoped lang="scss">
 .p-upload {
-    .avatar-uploader .el-upload {
-  border: 1px dashed var(--el-border-color);
-  border-radius: 6px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: var(--el-transition-duration-fast);
-}
-
-.avatar-uploader .el-upload:hover {
-  border-color: var(--el-color-primary);
-}
-
-.el-icon.avatar-uploader-icon {
-  font-size: 28px;
-  color: #8c939d;
-  width: 178px;
-  height: 178px;
-  text-align: center;
-}
-
-.hide {
-  :deep .el-upload--picture-card {
-    display: none;
+  .avatar-uploader .el-upload {
+    border: 1px dashed var(--el-border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: var(--el-transition-duration-fast);
   }
-}
+
+  .avatar-uploader .el-upload:hover {
+    border-color: var(--el-color-primary);
+  }
+
+  .el-icon.avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    text-align: center;
+  }
+
+  .hide {
+    :deep .el-upload--picture-card {
+      display: none;
+    }
+  }
 }
 </style>
