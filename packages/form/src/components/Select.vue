@@ -41,7 +41,7 @@ const formModel = useVModel(props, 'modelValue', emit)
 const { proxy } = getCurrentInstance()
 
 /** 初始化字典项值 */
-const opList = ref([])
+let opList = ref([])
 const initDictList = () => {
   if (!props.itemConfig.dict) {
     /** 不用字典项 */
