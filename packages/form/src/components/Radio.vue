@@ -40,6 +40,7 @@ const formModel = useVModel(props, 'modelValue', emit)
 
 /** 当前组件实例 */
 const { proxy } = getCurrentInstance()
+
 const fields = [props.itemConfig?.dict]
 const { [fields[0]]: fieldList } = proxy.useDict(props.itemConfig?.dict)
 
