@@ -1,17 +1,18 @@
 import Dialog from '@p-ui/dialog'
+import Field from '@p-ui/field'
 import Foo from '@p-ui/foo'
 import Form from '@p-ui/form'
+import QuillEditor from '@p-ui/quill-editor'
 import Table from '@p-ui/table'
 import Tabs from '@p-ui/tabs'
 import Tree from '@p-ui/tree'
-import Field from '@p-ui/field'
-import QuillEditor from '@p-ui/quill-editor'
+import Upload from '@p-ui/upload'
 // import component end
 import '../scss/index.scss'
 // 注册指令
 import directives from '@p-ui/directive'
 
-const components = [Foo, Form, Table, Dialog, Tabs, Tree, Field, QuillEditor] // components
+const components = [Foo, Form, Table, Dialog, Tabs, Tree, Field, Upload, QuillEditor] // components
 
 // 全局动态添加组件
 const install = (app) => {
