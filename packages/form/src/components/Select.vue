@@ -43,20 +43,18 @@ const fields = [props.itemConfig?.dict]
 const { [fields[0]]: fieldList } = proxy.useDict(props.itemConfig?.dict)
 
 /** 初始化字典项值 */
-let opList = ref([])
-const initDictList = () => {
+const opList = computed(() => {
   if (!props.itemConfig.dict) {
     /** 不用字典项 */
-    opList.value = props.itemConfig.options
+    return props.itemConfig.options
   } else {
     /** 用字典项 */
-    opList = fieldList.value
+    return fieldList.value
   }
-}
+})
 
 /** 抛出ref实例 */
 onMounted(() => {
-  initDictList()
   exposeObj = useExposeRef(proxy, exposeObj)
 })
 
