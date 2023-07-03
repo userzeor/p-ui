@@ -50,6 +50,8 @@ const opList = computed(() => {
     return props.itemConfig?.options
   } else {
     /** 用字典项 */
+    const fields = [props.itemConfig?.dict]
+    const { [fields[0]]: fieldList } = proxy.useDict(props.itemConfig?.dict)
     return fieldList.value
   }
 })

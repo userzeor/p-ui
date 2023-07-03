@@ -42,9 +42,6 @@ const formModel = useVModel(props, 'modelValue', emit)
 /** 当前组件实例 */
 const { proxy } = getCurrentInstance()
 
-const fields = [props.itemConfig?.dict]
-const { [fields[0]]: fieldList } = proxy.useDict(props.itemConfig?.dict)
-
 /** 初始化字典项值 */
 const opList = computed(() => {
   if (!props.itemConfig?.dict) {
@@ -52,6 +49,8 @@ const opList = computed(() => {
     return props.itemConfig?.options
   } else {
     /** 用字典项 */
+    const fields = [props.itemConfig?.dict]
+    const { [fields[0]]: fieldList } = proxy.useDict(props.itemConfig?.dict)
     return fieldList.value
   }
 })
