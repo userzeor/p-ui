@@ -43,7 +43,7 @@ const fields = [props.itemConfig?.dict]
 const { [fields[0]]: fieldList } = proxy.useDict(props.itemConfig?.dict)
 
 /** 初始化字典项值 */
-const opList = ref([])
+let opList = ref([])
 const initDictList = () => {
   if (!props.itemConfig.dict) {
     /** 不用字典项 */
