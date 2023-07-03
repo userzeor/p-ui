@@ -1,6 +1,6 @@
 {
   "name": "p-ui",
-  "version": "1.0.3",
+  "version": "1.0.13",
   "description": "",
   "main": "./lib/p-ui.umd.js",
   "module": "./lib/p-ui.es.js",
@@ -31,6 +31,7 @@
     "start:verdaccio": "pnpm verdaccio",
     "add:local": "pnpm adduser --registry http://localhost:4873/",
     "pub:local": "pnpm publish --registry http://localhost:4873/",
+    "pub:release": "pnpm run -C packages/p-ui build && pnpm version patch && pnpm publish --registry http://localhost:4873/",
     "update:major": "pnpm version major",
     "update:minor": "pnpm version minor",
     "update:patch": "pnpm version patch"

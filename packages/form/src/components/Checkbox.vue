@@ -14,7 +14,7 @@
 </template>
 
 <script setup name="Checkbox">
-import { ref, reactive, getCurrentInstance, onMounted } from 'vue'
+import { computed, reactive, getCurrentInstance, onMounted } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { useExposeRef } from '@p-ui/hook'
 const emit = defineEmits(['update:modelValue'])
@@ -41,22 +41,22 @@ const formModel = useVModel(props, 'modelValue', emit)
 
 /** 当前组件实例 */
 const { proxy } = getCurrentInstance()
+const fields = [props.itemConfig?.dict]
+const { [fields[0]]: fieldList } = proxy.useDict(props.itemConfig?.dict)
 
 /** 初始化字典项值 */
-const opList = ref([])
-const initDictList = () => {
+const opList = computed(() => {
   if (!props.itemConfig.dict) {
     /** 不用字典项 */
-    opList.value = props.itemConfig.options
+    return props.itemConfig.options
   } else {
     /** 用字典项 */
-    opList.value = proxy.useDict(props.itemConfig?.dict)[props.itemConfig?.dict].value
+    return fieldList.value
   }
-}
+})
 
 /** 抛出ref实例 */
 onMounted(() => {
-  initDictList()
   exposeObj = useExposeRef(proxy, exposeObj)
 })
 
