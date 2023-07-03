@@ -1,6 +1,5 @@
 <template>
   <div class="com-container">
-    {{ fieldList }}
     <el-radio-group v-model="formModel" v-bind="itemConfig.props">
       <el-radio
         v-for="(opItem, opIndex) in opList"
@@ -52,7 +51,7 @@ const initDictList = () => {
     opList.value = props.itemConfig.options
   } else {
     /** 用字典项 */
-    opList.value = fieldList.value
+    opList = fieldList.value
   }
 }
 

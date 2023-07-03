@@ -52,7 +52,7 @@ const initDictList = () => {
     opList.value = props.itemConfig.options
   } else {
     /** 用字典项 */
-    opList.value = fieldList.value
+    opList = fieldList.value
   }
 }
 
