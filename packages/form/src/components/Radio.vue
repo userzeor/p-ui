@@ -1,5 +1,7 @@
 <template>
   <div class="com-container">
+    {{ fieldList }}
+    {{ opList }}
     <el-radio-group v-model="formModel" v-bind="itemConfig.props">
       <el-radio
         v-for="(opItem, opIndex) in opList"
