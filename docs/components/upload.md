@@ -1,3 +1,7 @@
+---
+layout: doc
+layoutClass: doc-layout
+---
 # Upload 上传
 
 ## 基本使用

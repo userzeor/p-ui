@@ -39,16 +39,18 @@ const formModel = useVModel(props, 'modelValue', emit)
 
 /** 当前组件实例 */
 const { proxy } = getCurrentInstance()
+const fields = [props.itemConfig?.dict]
+const { [fields[0]]: fieldList } = proxy.useDict(props.itemConfig?.dict)
 
 /** 初始化字典项值 */
-let opList = ref([])
+const opList = ref([])
 const initDictList = () => {
   if (!props.itemConfig.dict) {
     /** 不用字典项 */
     opList.value = props.itemConfig.options
   } else {
     /** 用字典项 */
-    opList = proxy.useDict(props.itemConfig?.dict)[props.itemConfig?.dict]
+    opList.value = fieldList.value
   }
 }
 
