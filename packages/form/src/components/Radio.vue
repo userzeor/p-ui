@@ -13,7 +13,7 @@
 </template>
 
 <script setup name="Radio">
-import { ref, reactive, getCurrentInstance, onMounted } from 'vue'
+import { computed, reactive, getCurrentInstance, onMounted } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { useExposeRef } from '@p-ui/hook'
 const emit = defineEmits(['update:modelValue'])
