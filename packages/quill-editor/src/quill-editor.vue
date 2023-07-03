@@ -18,10 +18,16 @@ const emits = defineEmits(['backContent'])
 const props = defineProps({
   /* 编辑器的内容 */
   modelValue: {
+    default() {
+      return {}
+    },
     type: String
   },
   quillObject: {
-    type: String
+    default() {
+      return {}
+    },
+    type: Object
   }
 })
 const content = ref('')
