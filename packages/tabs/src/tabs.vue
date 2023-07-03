@@ -89,28 +89,28 @@ const handleClick = (tab, event) => {
   align-items: center;
   justify-content: center;
 }
-:deep .select {
+:deep(.select) {
   background-color: #4c75ed;
   color: #fff;
   opacity: 0.5;
 }
-:deep .el-dropdown-menu__item {
+:deep(.el-dropdown-menu__item) {
   padding: 5px 20px;
 }
 
-:deep .is-scrollable {
+:deep(.is-scrollable) {
   padding: 0px 30px;
 }
 
-:deep .el-tabs__nav-prev {
+:deep(.el-tabs__nav-prev) {
   width: 30px;
 }
 
-:deep .el-tabs__nav-next {
+:deep(.el-tabs__nav-next) {
   width: 30px;
 }
 
-:deep .el-tabs__header .el-tabs__item.is-active {
+:deep(.el-tabs__header .el-tabs__item.is-active) {
   border-top: 3px solid #4c75ed;
 }
 

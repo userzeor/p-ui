@@ -112,7 +112,7 @@ const beforeAvatarUpload = (rawFile) => {
   }
 
   .hide {
-    :deep .el-upload--picture-card {
+    :deep(.el-upload--picture-card) {
       display: none;
     }
   }

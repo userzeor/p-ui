@@ -7,15 +7,15 @@ deepAssign({}, { a: 1 }, { b: 3 })
  * @param ...args 是一个参数列表表示可以传多个参数对象
  */
 export const deepAssign = function () {
-  let len = arguments.length,
-    target = arguments[0]
+  const len = arguments.length
+  let target = arguments[0]
   if (!isPlainObject(target)) {
     target = {}
   }
   for (let i = 1; i < len; i++) {
-    let source = arguments[i]
+    const source = arguments[i]
     if (isPlainObject(source)) {
-      for (let s in source) {
+      for (const s in source) {
         if (s === '__proto__' || target === source[s]) {
           continue
         }

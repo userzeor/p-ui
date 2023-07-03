@@ -102,10 +102,10 @@ const dialogData = {
     props.dialogObject.width === 'big'
       ? '1000'
       : props.dialogObject.width === 'middle'
-      ? '720'
-      : props.dialogObject.width === 'small'
-      ? '560'
-      : '100%',
+        ? '720'
+        : props.dialogObject.width === 'small'
+          ? '560'
+          : '100%',
   successBtnText: props.dialogObject.successBtnText || '确定',
   closeBtnText: props.dialogObject.closeBtnText || '取消',
   draggable: props.dialogObject.draggable || false,
@@ -148,7 +148,7 @@ const handleSuccess = () => {
   margin: 0px 10px;
 }
 
-:deep .el-dialog__header {
+:deep(.el-dialog__header) {
   background-color: #4c75ed;
   margin-right: 0px;
   text-align: center;
@@ -164,11 +164,11 @@ const handleSuccess = () => {
   color: #fff;
 }
 
-:deep .el-button--primar {
+:deep(.el-button--primar) {
   background-color: #4c75ed;
 }
 
-:deep .el-dialog__footer {
+:deep(.el-dialog__footer) {
   background-color: #f8fafe;
   padding: 16px;
 }
