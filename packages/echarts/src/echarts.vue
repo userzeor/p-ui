@@ -1,5 +1,9 @@
 <template>
-    <div class="echart" ref="chartDom" :style="{width : echartObject.width, height: echartObject.height}"></div>
+  <div
+    class="echart"
+    ref="chartDom"
+    :style="{ width: echartObject.width, height: echartObject.height }"
+  ></div>
 </template>
 <script setup name="p-echarts">
 // 按需导入需要用到的 vue函数 和 echarts
@@ -21,7 +25,6 @@ const props = defineProps({
     type: Object,
     default: () => {}
   }
-
 })
 // 重绘图表函数
 const resizeHandler = () => {
@@ -54,12 +57,13 @@ onBeforeUnmount(() => {
   myChart.dispose()
 })
 // 监听图表数据时候变化，重新渲染图表
-watch(() => props.option, () => {
-  myChart.setOption(props.option, true)
-}, { deep: true })
-
+watch(
+  () => props.option,
+  () => {
+    myChart.setOption(props.option, true)
+  },
+  { deep: true }
+)
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -8,5 +8,6 @@ export const components = [
   { text: 'Field 展示字段组件', link: '/components/field' },
   { text: 'Upload 上传', link: '/components/upload' },
   { text: 'QuillEditor 富文本编辑器', link: '/components/quill-editor' },
-  { text: 'Echarts Echarts', link: '/components/echarts' }
+  { text: 'Echarts Echarts', link: '/components/echarts' },
+  { text: 'Empty 空数据组件', link: '/components/empty' }
 ] // end
