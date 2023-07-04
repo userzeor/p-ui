@@ -15,7 +15,7 @@ console.log(deepAssign({ a: 1 }, { b: 3 }))
 
 ### **deepAssign**
 
-**<font size="3"> 深度合并多个对象的方法 </font>**
+**<span style="fontSize: 16px;"> 深度合并多个对象的方法 </span>**
 
 **参数**
 
@@ -24,7 +24,7 @@ console.log(deepAssign({ a: 1 }, { b: 3 }))
 
 **返回值**
 
-**<font size="3"> {Object} </font>**
+**<span style="fontSize: 16px;"> {Object} </span>**
 
 **例子**
 
@@ -40,13 +40,13 @@ deepAssign({}, { a: 1 }, { b: 3 })
 
 ### **emitter**
 
-**<font size="3"></font>**
+**<span style="fontSize: 16px;"></span>**
 
 **参数**
 
 **返回值**
 
-**<font size="3"></font>**
+**<span style="fontSize: 16px;"></span>**
 
 **例子**
 
@@ -60,7 +60,7 @@ deepAssign({}, { a: 1 }, { b: 3 })
 
 ### **isArray**
 
-**<font size="3"></font>**
+**<span style="fontSize: 16px;"></span>**
 
 **参数**
 
@@ -68,7 +68,7 @@ deepAssign({}, { a: 1 }, { b: 3 })
 
 **返回值**
 
-**<font size="3">s {Boolean}</font>**
+**<span style="fontSize: 16px;">s {Boolean}</span>**
 
 **例子**
 

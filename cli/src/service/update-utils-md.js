@@ -133,14 +133,14 @@ const updateHandle = (handleName) => {
 <!-- ${handleName} start -->
 ### **${handleName}**
 
-**<font size="3">${descStr}</font>**
+**<span style="fontSize: 16px;">${descStr}</span>**
 
 **参数**
 ${paramStr}
 
 **返回值**
 
-**<font size="3">${returnStr}</font>**
+**<span style="fontSize: 16px;">${returnStr}</span>**
 
 **例子**
 \`\`\`js

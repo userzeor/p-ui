@@ -13,28 +13,28 @@ p-ui/
 
 ## 添加账户
 
-### <http://localhost:4873/> 代表启动的私服地址
+### url 代表启动的私服地址
 
 ```shell
-pnpm adduser --registry <http://localhost:4873/>
+pnpm adduser --registry url
 ```
 
 ## 发布组件库到私服
 
 ```shell
-pnpm publish --registry <http://localhost:4873/>
+pnpm publish --registry url
 ```
 
 ## 指定安装来源
 
 ```shell
-pnpm install --registry <http://localhost:4873/>
+pnpm install --registry url
 ```
 
 ## 安装组件库
 
 ```shell
-pnpm install p-ui --registry <http://localhost:4873/>
+pnpm install p-ui --registry url
 ```
 
 ## 如果提示无权限, 先登录
@@ -75,10 +75,10 @@ pnpm version major
 
 ### major：新的架构调整，不兼容老版本
 
-## <font color="red">故障排除</font>
+## <span style="color: red">故障排除</span>
 
-## 执行 pnpm adduser --registry http://localhost:4873/ 报 Web login is not supported for verdaccio.的话
+## 执行 pnpm adduser --registry url 报 Web login is not supported for verdaccio.的话
 
 ```shell
-pnpm adduser --auth-type=legacy --registry http://localhost:4873/
+pnpm adduser --auth-type=legacy --registry url
 ```
