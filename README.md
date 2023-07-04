@@ -75,7 +75,7 @@ pnpm version major
 
 ### major：新的架构调整，不兼容老版本
 
-## <font color="red">故障排除</font>
+## <span style="color: red">故障排除</span>
 
 ## 执行 pnpm adduser --registry http://localhost:4873/ 报 Web login is not supported for verdaccio.的话
 
