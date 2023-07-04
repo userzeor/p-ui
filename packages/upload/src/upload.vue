@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-upload
+      ref="uploadRef"
       v-model:file-list="fileList"
       :class="{ hide: hideUpload }"
       :action="uploadObject.uploadUrl"
@@ -12,11 +13,17 @@
       :on-exceed="handleExceed"
       :before-upload="beforeAvatarUpload"
       :list-type="uploadObject.type"
+      :auto-upload="uploadObject.autoUpload"
     >
-      <el-icon class="avatar-uploader-icon">
+      <el-icon class="avatar-uploader-icon" v-if="uploadObject.type === 'picture-card'">
         <Plus />
       </el-icon>
+      <el-button v-else type="primary">Click to upload</el-button>
     </el-upload>
+
+    <el-button class="ml-3" type="success" @click="submitUpload" v-if="!uploadObject.autoUpload">
+      上传
+    </el-button>
 
     <el-dialog v-model="dialogVisible">
       <img w-full :src="dialogImageUrl" alt="Preview Image" />
@@ -32,7 +39,7 @@ const dialogImageUrl = ref('')
 const dialogVisible = ref(false)
 const props = defineProps({
   uploadObject: {
-    type: String,
+    type: Object,
     default: () => {}
   }
 })
@@ -83,38 +90,49 @@ const beforeAvatarUpload = (rawFile) => {
   return true
 }
 
+const uploadRef = ref('uploadRef')
+const submitUpload = () => {
+  uploadRef.value.submit()
+}
+
 /**
   @prop uploadObject | upload配置参数 | Object | {} | {}
  */
 </script>
 
+<style scoped>
+.avatar-uploader .avatar {
+  width: 178px;
+  height: 178px;
+  display: block;
+}
+</style>
+
 <style scoped lang="scss">
-.p-upload {
-  .avatar-uploader .el-upload {
-    border: 1px dashed var(--el-border-color);
-    border-radius: 6px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: var(--el-transition-duration-fast);
-  }
+.avatar-uploader .el-upload {
+  border: 1px dashed var(--el-border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--el-transition-duration-fast);
+}
 
-  .avatar-uploader .el-upload:hover {
-    border-color: var(--el-color-primary);
-  }
+.avatar-uploader .el-upload:hover {
+  border-color: var(--el-color-primary);
+}
 
-  .el-icon.avatar-uploader-icon {
-    font-size: 28px;
-    color: #8c939d;
-    width: 178px;
-    height: 178px;
-    text-align: center;
-  }
+.el-icon.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 178px;
+  height: 178px;
+  text-align: center;
+}
 
-  .hide {
-    :deep(.el-upload--picture-card) {
-      display: none;
-    }
+.hide {
+  :deep(.el-upload--picture-card) {
+    display: none;
   }
 }
 </style>

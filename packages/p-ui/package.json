@@ -12,6 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "@p-ui/dialog": "workspace:^",
+    "@p-ui/directive": "workspace:^",
+    "@p-ui/echarts": "workspace:^",
+    "@p-ui/empty": "workspace:^",
     "@p-ui/field": "workspace:^",
     "@p-ui/foo": "workspace:^",
     "@p-ui/form": "workspace:^",
@@ -20,8 +23,7 @@
     "@p-ui/tabs": "workspace:^",
     "@p-ui/tree": "workspace:^",
     "@p-ui/upload": "workspace:^",
-    "@p-ui/utils": "workspace:^",
-    "@p-ui/directive": "workspace:^"
+    "@p-ui/utils": "workspace:^"
   },
   "devDependencies": {
     "rimraf": "^5.0.1"

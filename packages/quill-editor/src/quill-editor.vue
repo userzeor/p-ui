@@ -1,12 +1,12 @@
 <template>
   <div>
     <QuillEditor
-            :options="options"
-            :style="styles"
-            v-model:content="content"
-            contentType="html"
-            @textChange="handleTextChange"
-         />
+      :options="options"
+      :style="styles"
+      v-model:content="content"
+      contentType="html"
+      @textChange="handleTextChange"
+    />
   </div>
 </template>
 
@@ -18,10 +18,16 @@ const emits = defineEmits(['backContent'])
 const props = defineProps({
   /* 编辑器的内容 */
   modelValue: {
+    default() {
+      return {}
+    },
     type: String
   },
   quillObject: {
-    type: String
+    default() {
+      return {}
+    },
+    type: Object
   }
 })
 const content = ref('')

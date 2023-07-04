@@ -1,5 +1,10 @@
 <template>
-  <p-tree :treeData="treeData" :treeObject="treeObject" @nodeClickBack="backNodeClick"></p-tree>
+  <p-tree
+    :treeData="treeData"
+    :treeObject="treeObject"
+    @nodeClickBack="backNodeClick"
+    @draggBack="draggBack"
+  ></p-tree>
 </template>
 
 <script setup>
@@ -15,7 +20,8 @@ const treeObject = reactive({
   defaultCheckedKeys: [], // 默认选择节点
   defaultExpandAll: false, // 展开全部节点
   accordion: false, // 手风琴模式
-  treeFilter: false // 树节点过滤
+  treeFilter: false, // 树节点过滤
+  dragAble: false
 })
 
 const backNodeClick = (val) => {
@@ -92,6 +98,10 @@ const treeData = reactive([
     ]
   }
 ])
+
+const draggBack = (val) => {
+  console.log(val)
+}
 </script>
 
 <style scoped lang="scss"></style>

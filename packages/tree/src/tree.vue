@@ -13,6 +13,8 @@
       :accordion="treeObject.accordion"
       :filter-node-method="filterNode"
       @node-click="handleNodeClick"
+      :draggable="treeObject.dragAble"
+      @node-drop="handleDrop"
     />
   </div>
 </template>
@@ -20,7 +22,7 @@
 <script setup name="p-tree">
 import { ref, watch, defineProps } from 'vue'
 const filterText = ref('')
-const emits = defineEmits(['nodeClickBack'])
+const emits = defineEmits(['nodeClickBack', 'draggBack'])
 const props = defineProps({
   treeData: {
     default() {
@@ -48,6 +50,9 @@ const filterNode = (val, data) => {
 
 const handleNodeClick = (data) => {
   emits('nodeClickBack', data)
+}
+const handleDrop = (draggingNode, dropNode, dropType, ev) => {
+  emits('draggBack', ev)
 }
 </script>
 
