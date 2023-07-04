@@ -13,8 +13,5 @@ const props = defineProps({
   }
 })
 
-const imgUrl = new URL(
-  `${props.emptyImage}`,
-  import.meta.url
-).href
+const imgUrl = new URL(`${props.emptyImage}`, import.meta.url).href
 </script>
