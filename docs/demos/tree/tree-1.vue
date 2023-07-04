@@ -1,5 +1,10 @@
 <template>
-  <p-tree :treeData="treeData" :treeObject="treeObject" @nodeClickBack="backNodeClick" @draggBack="draggBack"></p-tree>
+  <p-tree
+    :treeData="treeData"
+    :treeObject="treeObject"
+    @nodeClickBack="backNodeClick"
+    @draggBack="draggBack"
+  ></p-tree>
 </template>
 
 <script setup>

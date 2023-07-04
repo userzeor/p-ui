@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-upload
-        ref="uploadRef"
+      ref="uploadRef"
       v-model:file-list="fileList"
       :class="{ hide: hideUpload }"
       :action="uploadObject.uploadUrl"
@@ -15,11 +15,10 @@
       :list-type="uploadObject.type"
       :auto-upload="uploadObject.autoUpload"
     >
-        <el-icon class="avatar-uploader-icon" v-if="uploadObject.type === 'picture-card'">
-            <Plus />
-        </el-icon>
-        <el-button v-else type="primary" >Click to upload</el-button>
-
+      <el-icon class="avatar-uploader-icon" v-if="uploadObject.type === 'picture-card'">
+        <Plus />
+      </el-icon>
+      <el-button v-else type="primary">Click to upload</el-button>
     </el-upload>
 
     <el-button class="ml-3" type="success" @click="submitUpload" v-if="!uploadObject.autoUpload">
@@ -132,7 +131,7 @@ const submitUpload = () => {
 }
 
 .hide {
-  :deep .el-upload--picture-card {
+  :deep(.el-upload--picture-card) {
     display: none;
   }
 }

@@ -7,5 +7,6 @@ export const components = [
   { text: 'Tree 树形组件', link: '/components/tree' },
   { text: 'Field 展示字段组件', link: '/components/field' },
   { text: 'Upload 上传', link: '/components/upload' },
-  { text: 'QuillEditor 富文本编辑器', link: '/components/quill-editor' }
+  { text: 'QuillEditor 富文本编辑器', link: '/components/quill-editor' },
+  { text: 'Echarts Echarts', link: '/components/echarts' }
 ] // end

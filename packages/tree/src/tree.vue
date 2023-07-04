@@ -51,12 +51,7 @@ const filterNode = (val, data) => {
 const handleNodeClick = (data) => {
   emits('nodeClickBack', data)
 }
-const handleDrop = (
-  draggingNode,
-  dropNode,
-  dropType,
-  ev
-) => {
+const handleDrop = (draggingNode, dropNode, dropType, ev) => {
   emits('draggBack', ev)
 }
 </script>

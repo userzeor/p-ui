@@ -1,12 +1,12 @@
 <template>
   <div>
     <QuillEditor
-            :options="options"
-            :style="styles"
-            v-model:content="content"
-            contentType="html"
-            @textChange="handleTextChange"
-         />
+      :options="options"
+      :style="styles"
+      v-model:content="content"
+      contentType="html"
+      @textChange="handleTextChange"
+    />
   </div>
 </template>
 

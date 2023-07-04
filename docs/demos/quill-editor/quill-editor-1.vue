@@ -1,5 +1,9 @@
 <template>
-  <p-quill-editor :quillObject="quillObject" :modelValue="modelValue"  @backContent="backContent"></p-quill-editor>
+  <p-quill-editor
+    :quillObject="quillObject"
+    :modelValue="modelValue"
+    @backContent="backContent"
+  ></p-quill-editor>
 </template>
 
 <script setup>
