@@ -14,6 +14,7 @@
     "@p-ui/card": "workspace:^",
     "@p-ui/dialog": "workspace:^",
     "@p-ui/directive": "workspace:^",
+    "@p-ui/drawer": "workspace:^",
     "@p-ui/echarts": "workspace:^",
     "@p-ui/empty": "workspace:^",
     "@p-ui/field": "workspace:^",

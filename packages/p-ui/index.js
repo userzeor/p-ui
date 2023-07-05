@@ -11,6 +11,7 @@ import Echarts from '@p-ui/echarts'
 import Empty from '@p-ui/empty'
 import Card from '@p-ui/card'
 import Steps from '@p-ui/steps'
+import Drawer from '@p-ui/drawer'
 // import component end
 import '../scss/index.scss'
 // 注册指令
@@ -29,7 +30,8 @@ const components = [
   Echarts,
   Empty,
   Card,
-  Steps
+  Steps,
+  Drawer
 ] // components
 
 // 全局动态添加组件

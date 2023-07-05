@@ -1,9 +1,17 @@
 <template>
-    <el-steps :active="active" finish-status="success" :align-center="stepsObject.alignCenter" :direction="stepsObject.direction" :simple="stepsObject.simple">
-      <slot name="content"></slot>
-    </el-steps>
+  <el-steps
+    :active="active"
+    finish-status="success"
+    :align-center="stepsObject.alignCenter"
+    :direction="stepsObject.direction"
+    :simple="stepsObject.simple"
+  >
+    <slot name="content"></slot>
+  </el-steps>
 
-    <el-button style="margin-top: 12px" @click="next" v-if="stepsObject.nextStepBtn">Next step</el-button>
+  <el-button style="margin-top: 12px" @click="next" v-if="stepsObject.nextStepBtn"
+    >Next step</el-button
+  >
 </template>
 
 <script setup name="p-steps">

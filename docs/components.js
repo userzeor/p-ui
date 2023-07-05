@@ -11,5 +11,6 @@ export const components = [
   { text: 'Echarts Echarts', link: '/components/echarts' },
   { text: 'Empty 空数据组件', link: '/components/empty' },
   { text: 'Card 卡片组件', link: '/components/card' },
-  { text: 'Steps 步骤条组件', link: '/components/steps' }
+  { text: 'Steps 步骤条组件', link: '/components/steps' },
+  { text: 'Drawer 抽屉组件', link: '/components/drawer' }
 ] // end
