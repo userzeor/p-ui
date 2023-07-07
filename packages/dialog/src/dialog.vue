@@ -27,9 +27,10 @@ const emits = defineEmits(['dialogSuccess', 'dialogClose'])
     @prop dialogObjDelDef | dialog配置参数 | Object | {} | {}
     @prop dialogVisible | 是否显示 Dialog | boolean | true false | false
     @prop title | 标题 | string | - | -
-    @prop width | Dialog 的宽度 | string | 'small','middle','big' | 'small'
+    @prop width | Dialog 的宽度 | string | small,middle,big,fullScreen | small
     @prop draggable | 是否 可拖拽 | boolean | - | false
-
+    @slot #dialogContent | 弹框内容插槽 |
+    @slot #footer | 弹框footer插槽 |
  */
 const props = defineProps({
   dialogObject: {

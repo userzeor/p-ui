@@ -1,11 +1,12 @@
 <template>
   <p-echarts :echartObject="echartObject" :option="option"></p-echarts>
+
 </template>
 
 <script setup>
 import { reactive } from 'vue'
 const echartObject = reactive({
-  width: '900px',
+  width: '100%',
   height: '420px'
 })
 

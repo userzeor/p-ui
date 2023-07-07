@@ -13,8 +13,9 @@
 <script setup name="p-quill-editor">
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
-import { reactive, watch, ref, computed } from 'vue'
-const emits = defineEmits(['backContent'])
+import { reactive, computed } from 'vue'
+import { useVModel } from '@vueuse/core'
+const emits = defineEmits(['backContent', 'update:modelValue'])
 const props = defineProps({
   /* 编辑器的内容 */
   modelValue: {
@@ -30,15 +31,9 @@ const props = defineProps({
     type: Object
   }
 })
-const content = ref('')
 
-watch(
-  () => props.modelValue,
-  (v) => {
-    content.value = v
-  },
-  { immediate: true }
-)
+/** 解决v-model的双向绑定问题 */
+const content = useVModel(props, 'modelValue', emits)
 
 const options = reactive({
   theme: 'snow',
