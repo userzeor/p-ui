@@ -33,8 +33,6 @@
 
 <script setup name="p-upload">
 import { computed, ref } from 'vue'
-import { ElMessage, ElMessageBox } from 'element-plus'
-import { Plus } from '@element-plus/icons-vue'
 const dialogImageUrl = ref('')
 const dialogVisible = ref(false)
 const props = defineProps({
