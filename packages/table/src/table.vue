@@ -1,7 +1,11 @@
 <template>
   <div class="com-container">
     <el-table :data="data" v-bind="attrs" class="p-table">
-      <el-table-column v-for="(item, index) in columns" :key="item.prop" v-bind="item" />
+      <el-table-column v-for="(item, index) in columns" :key="item.prop" v-bind="item">
+        <template v-if="item.slot" #[item.slot]>
+          <slot :name="item.slot"></slot>
+        </template>
+      </el-table-column>
     </el-table>
 
     <!-- 分页组件 -->
