@@ -1,8 +1,9 @@
 <template>
-  <el-empty :description="description" :image="imgUrl" />
+  <el-empty :description="description" :image="emptyImage" />
 </template>
 
 <script setup name="p-empty">
+import { computed } from 'vue'
 const props = defineProps({
   description: {
     type: String,
@@ -12,6 +13,4 @@ const props = defineProps({
     type: String
   }
 })
-
-const imgUrl = new URL(`${props.emptyImage}`, import.meta.url).href
 </script>

@@ -5,7 +5,7 @@
 <script setup>
 const description = '我是空数据'
 
-const emptyImage = './empty-data.png'
+const emptyImage = window.location.origin + '/demos/empty/empty-data.png'
 </script>
 
 <style scoped lang="scss"></style>
