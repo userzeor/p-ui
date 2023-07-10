@@ -8,6 +8,7 @@
 
 // export default { ...modules }
 
-export { emitter } from './src/emitter'
-export { deepAssign } from './src/deepAssign'
-export { isArray } from './src/isArray'
+export { deepAssign } from './src/deepAssign.js'
+export { emitter } from './src/emitter.js'
+export { isArray } from './src/isArray.js'
+
