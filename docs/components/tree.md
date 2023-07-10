@@ -12,31 +12,18 @@ layoutClass: doc-layout
 ## Tree 组件 API
 
 ### Tree Attributes 属性
-
-| 属性名 | 说明 | 类型 | 可选值 | 默认值 |
-| ------ | ---- | ---- | ------ | ------ |
-|        |      |      |        |        |
-
-### Tree Methods 方法
-
-| 方法名 | 说明 | 参数 | 返回值 |
-| ------ | ---- | ---- | ------ |
-|        |      |      |        |
-
-### Tree Events 事件
-
-| 事件名 | 说明 | 类型 | 返回值 |
-| ------ | ---- | ---- | ------ |
-|        |      |      |        |
-
-### Tree Exposes 抛出
-
-| 名称 | 说明 | 类型 |
-| ---- | ---- | ---- |
-|      |      |      |
-
-### Tree Slots 插槽
-
-| 插槽名 | 说明 | 返回值 |
-| ------ | ---- | ------ |
-|        |      |        |
+  | <div style="width: 100px">属性名</div> | 说明 | <div style="width: 100px">类型</div> | <div style="width: 100px">可选值</div> | <div style="width: 100px">默认值</div> |
+  | ---- | ---- | ---- | ------ | ------ |
+  ### Tree Methods 方法
+  | <div style="width: 100px">方法名</div> | 说明 | <div style="width: 100px">参数</div> | <div style="width: 100px">返回值</div> |
+  | ------ | ---- | ---- | ------ |
+  ### Tree Events 事件
+  | <div style="width: 100px">事件名</div> | 说明 | <div style="width: 100px">类型</div> | <div style="width: 100px">返回值</div> |
+  | ------ | ---- | ---- | ------ |
+  ### Tree Exposes 抛出
+  | <div style="width: 100px">名称</div> | 说明 | <div style="width: 100px">类型</div> |
+  |  ----  | ----  | ----  |
+  ### Tree Slots 插槽
+  | <div style="width: 100px">插槽名</div> | 说明 | <div style="width: 100px">返回值</div> |
+  | ------ | ---- | ---- |
+    
