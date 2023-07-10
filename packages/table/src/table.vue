@@ -2,8 +2,27 @@
   <div class="com-container">
     <el-table :data="data" v-bind="attrs" class="p-table">
       <el-table-column v-for="(item, index) in columns" :key="item.prop" v-bind="item">
-        <slot v-if="$slots[item.slot]" :name="item.slot"></slot>
+        <template v-if="$slots[item.slot]" #default="{ row, column, $index }">
+          <slot
+            :name="item.slot"
+            :row="row"
+            :column="column"
+            :columnIndex="index"
+            :$index="$index"
+          ></slot>
+        </template>
+        <template v-if="$slots[item.headerSlot]" #header="{ column, $index }">
+          <slot
+            :name="item.headerSlot"
+            :column="column"
+            :columnIndex="index"
+            :$index="$index"
+          ></slot>
+        </template>
       </el-table-column>
+      <template v-for="(slotName, index) in tableConfig.slots" #[slotName]>
+        <slot v-if="$slots[slotName]" :name="slotName" :index="index"></slot>
+      </template>
     </el-table>
 
     <!-- 分页组件 -->

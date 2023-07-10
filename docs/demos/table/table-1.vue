@@ -9,7 +9,14 @@
     @size-change="handleSizeChange"
     @current-change="handleCurrentChange"
   >
-    <template #hosPatGender> 666 </template>
+    <template #hosPatGender="{ row, column, columnIndex, $index }">
+      {{ row.hosPatGender }}
+      {{ column.label }}
+      {{ columnIndex }}
+      {{ $index }}
+      <el-button type="primary">操作</el-button>
+    </template>
+    <template #append> <div style="text-align: center">插入到最后</div> </template>
   </p-table>
 </template>
 
@@ -59,7 +66,8 @@ const columns = [
 ]
 
 const tableConfig = {
-  ref: 'elTable'
+  ref: 'elTable',
+  slots: ['append', 'empty']
 }
 
 const pageInfo = reactive({
@@ -90,7 +98,7 @@ const myTable = ref(null)
 
 onMounted(() => {
   console.log(myTable.value)
-  getTableData()
+  // getTableData()
 })
 </script>
 
