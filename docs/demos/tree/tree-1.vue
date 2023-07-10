@@ -1,5 +1,5 @@
 <template>
-    <!-- <el-input v-model="modelValue" placeholder="请输入"  /> -->
+    <el-input v-model="modelValue" placeholder="请输入"  />
     <p-tree
         :treeData="treeData"
         :treeObject="treeObject"
