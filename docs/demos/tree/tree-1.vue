@@ -1,14 +1,16 @@
 <template>
-  <p-tree
-    :treeData="treeData"
-    :treeObject="treeObject"
-    @nodeClickBack="backNodeClick"
-    @draggBack="draggBack"
-  ></p-tree>
+    <!-- <el-input v-model="modelValue" placeholder="请输入"  /> -->
+    <p-tree
+        :treeData="treeData"
+        :treeObject="treeObject"
+        v-model="modelValue"
+        @nodeClickBack="backNodeClick"
+        @draggBack="draggBack"
+    ></p-tree>
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 const treeObject = reactive({
   showCheckbox: false,
   nodeKey: 'id', // 默认展开和选择必须设置的值
@@ -20,10 +22,9 @@ const treeObject = reactive({
   defaultCheckedKeys: [], // 默认选择节点
   defaultExpandAll: false, // 展开全部节点
   accordion: false, // 手风琴模式
-  treeFilter: false, // 树节点过滤
-  dragAble: false
+  dragAble: false // 拖拽
 })
-
+const modelValue = ref('')
 const backNodeClick = (val) => {
   console.log(val.label)
 }

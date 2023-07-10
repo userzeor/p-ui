@@ -9,6 +9,9 @@ import Upload from '@p-ui/upload'
 import QuillEditor from '@p-ui/quill-editor'
 import Echarts from '@p-ui/echarts'
 import Empty from '@p-ui/empty'
+import Card from '@p-ui/card'
+import Steps from '@p-ui/steps'
+import Drawer from '@p-ui/drawer'
 // import component end
 import '../scss/index.scss'
 // 注册指令
@@ -25,7 +28,10 @@ const components = [
   Upload,
   QuillEditor,
   Echarts,
-  Empty
+  Empty,
+  Card,
+  Steps,
+  Drawer
 ] // components
 
 // 全局动态添加组件

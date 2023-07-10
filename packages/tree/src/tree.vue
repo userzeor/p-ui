@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-input v-model="filterText" placeholder="请输入" v-if="treeObject.treeFilter" />
+
     <el-tree
       ref="treeRef"
       :data="treeData"
@@ -21,8 +21,9 @@
 
 <script setup name="p-tree">
 import { ref, watch, defineProps } from 'vue'
-const filterText = ref('')
-const emits = defineEmits(['nodeClickBack', 'draggBack'])
+import { useVModel } from '@vueuse/core'
+// const filterText = ref('222')
+const emits = defineEmits(['nodeClickBack', 'draggBack', 'update:modelValue'])
 const props = defineProps({
   treeData: {
     default() {
@@ -35,13 +36,37 @@ const props = defineProps({
       return {}
     },
     type: Object
+  },
+  modelValue: {
+    type: String,
+    default() {
+      return {}
+    }
   }
 })
 const treeRef = ref('treeRef')
 
-watch(filterText, (val) => {
-  treeRef.value && treeRef.value.filter(val)
-})
+/** 解决v-model的双向绑定问题 */
+// const filterText = useVModel(props, 'modelValue', emits)
+
+// console.log(filterText.value)
+// console.log(treeRef.value)
+// treeRef.value.filter(filterText.value)
+
+// treeRef.value && treeRef.value.filter(content)
+
+// watch(props.modelValue, (val) => {
+//   console.log(val)
+//   treeRef.value && treeRef.value.filter(val)
+// })
+
+watch(
+  () => props.modelValue,
+  () => {
+    treeRef.value && treeRef.value.filter(props.modelValue)
+  },
+  { deep: true }
+)
 
 const filterNode = (val, data) => {
   if (!val) return true

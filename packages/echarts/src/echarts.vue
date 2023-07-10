@@ -56,6 +56,7 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', cancalDebounce)
   myChart.dispose()
 })
+
 // 监听图表数据时候变化，重新渲染图表
 watch(
   () => props.option,

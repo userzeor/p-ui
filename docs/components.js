@@ -9,5 +9,8 @@ export const components = [
   { text: 'Upload 上传', link: '/components/upload' },
   { text: 'QuillEditor 富文本编辑器', link: '/components/quill-editor' },
   { text: 'Echarts Echarts', link: '/components/echarts' },
-  { text: 'Empty 空数据组件', link: '/components/empty' }
+  { text: 'Empty 空数据组件', link: '/components/empty' },
+  { text: 'Card 卡片组件', link: '/components/card' },
+  { text: 'Steps 步骤条组件', link: '/components/steps' },
+  { text: 'Drawer 抽屉组件', link: '/components/drawer' }
 ] // end
