@@ -1,7 +1,94 @@
 <template>
-  <p-table></p-table>
+  <p-table
+    ref="myTable"
+    :data="tableData"
+    :columns="columns"
+    :table-config="tableConfig"
+    @cell-click="cellClick"
+    :page-info="pageInfo"
+    @size-change="handleSizeChange"
+    @current-change="handleCurrentChange"
+  ></p-table>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, reactive, onMounted } from 'vue'
+let tableData = ref([])
+
+const getTableData = async () => {
+  const res = await fetch('http://192.168.1.32:4242/hoip/page-patient-grade', {
+    method: 'post',
+    body: JSON.stringify({ hosAdmSpec: '', gradeId: '', ...pageInfo }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  const data = await res.json()
+  console.log(data)
+  tableData.value = data.records
+  pageInfo.total = data.total
+}
+
+const columns = [
+  {
+    type: 'selection'
+  },
+  {
+    prop: 'hosAdmNo',
+    label: '编号'
+  },
+  {
+    prop: 'hosPatName',
+    label: '患者名称'
+  },
+  {
+    prop: 'age',
+    label: '年龄'
+  },
+  {
+    prop: 'hosAdmSpecName',
+    label: '科室'
+  },
+  {
+    prop: 'hosPatGender',
+    label: '性别'
+  }
+]
+
+const tableConfig = {
+  ref: 'elTable'
+}
+
+const pageInfo = reactive({
+  pageSize: 10,
+  pageNo: 1,
+  total: 0
+})
+
+// 分页大小变化的事件
+const handleSizeChange = (size) => {
+  pageInfo.pageSize = size
+  getTableData()
+  console.log(size)
+}
+
+// 当前页变化的事件
+const handleCurrentChange = (cur) => {
+  pageInfo.pageNo = cur
+  getTableData()
+  console.log(cur)
+}
+
+const cellClick = (row, column, cell, event) => {
+  console.log(row, column, cell, event)
+}
+
+const myTable = ref(null)
+
+onMounted(() => {
+  console.log(myTable.value)
+  getTableData()
+})
+</script>
 
 <style scoped lang="scss"></style>

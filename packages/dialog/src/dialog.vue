@@ -160,7 +160,7 @@ const handleSuccess = () => {
   }
 }
 
-:deep .el-dialog__close {
+:deep(.el-dialog__close) {
   color: #fff;
 }
 

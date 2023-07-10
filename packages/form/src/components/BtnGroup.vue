@@ -1,6 +1,7 @@
 <template>
   <div class="com-container" v-bind="itemConfig.props">
-    <el-button type="primary" @click="submitForm()">提交</el-button>
+    <el-button type="primary" native-type="submit">提交</el-button>
+    <!-- <el-button type="primary" native-type="submit" @click="submitForm()">提交</el-button> -->
     <el-button @click="resetForm()">重置</el-button>
   </div>
 </template>

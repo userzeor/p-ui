@@ -23,3 +23,35 @@
   display: table;
   width: 100%;
 }
+
+/* 解决vitepress污染elm-table的样式 */
+
+.el-table table {
+  border-collapse: unset;
+  margin: unset;
+  display: inherit;
+  overflow-x: unset;
+}
+.el-table tr {
+  border-top: unset;
+}
+.el-table tr:nth-child(2n) {
+  background-color: unset;
+}
+.el-table th,
+.el-table td {
+  border: unset;
+  padding: unset;
+}
+
+/* 解决vitepress污染elm的分页组件的样式 */
+.el-pager li + li {
+  margin-top: 0;
+}
+
+ul.el-pager,
+ol.el-pager {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}

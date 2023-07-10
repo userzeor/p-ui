@@ -1,6 +1,6 @@
 <template>
   <div class="com-container">
-    <el-form @submit.prevent="submit" :model="formModel" v-bind="formConfig.form">
+    <el-form @submit.prevent="submit" :model="formModel" v-bind="attrs">
       <el-row v-for="(row, index) in options" :key="index" :gutter="gutter(index)">
         <el-col :span="item?.col?.span ?? 8" v-for="(item, kIndex) in row" :key="kIndex">
           <el-form-item :label="item.title" :prop="item.field" v-bind="item.formItemProps">
@@ -120,6 +120,11 @@ const componentList = shallowReactive({
 
 // 获取当前实例
 const { proxy } = getCurrentInstance()
+
+/** 合并透传属性 */
+const attrs = computed(() => {
+  return deepAssign(props.formConfig?.form, proxy.$attrs)
+})
 
 // 默认的form表单配置项
 const defaultFormConfig = {

@@ -204,7 +204,8 @@ const options = reactive([
 const uForm = ref(null)
 
 const formSubmit = (valid) => {
-  console.log(formModel)
+  alert('dsdsd')
+  console.log(valid)
 }
 
 const modelChange = (val) => {
