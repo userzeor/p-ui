@@ -15,6 +15,7 @@
       @node-click="handleNodeClick"
       :draggable="treeObject.dragAble"
       @node-drop="handleDrop"
+      :expand-on-click-node = "expandOnClickNode"
     />
   </div>
 </template>
