@@ -1,11 +1,11 @@
 <template>
-  <p-empty :description="description" :emptyImage="emptyImage"></p-empty>
+  <p-empty :emptyData="emptyData"></p-empty>
+
 </template>
 
 <script setup>
-const description = '我是空数据'
 
-const emptyImage = window.location.origin + '/demos/empty/empty-data.png'
+const emptyData = '2'
 </script>
 
 <style scoped lang="scss"></style>
