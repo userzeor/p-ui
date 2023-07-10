@@ -13,7 +13,7 @@ export default defineConfig({
     },
     outDir: path.resolve(__dirname, '../../lib'),
     rollupOptions: {
-      external: ['vue', 'element-plus', '@element-plus/icons-vue'],
+      external: ['vue', 'element-plus', '@element-plus/icons-vue', '@vueup/vue-quill', 'echarts'],
       output: {
         globals: {
           vue: 'Vue'
