@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@p-ui/hook": "workspace:^"
+    "@p-ui/hook": "workspace:^",
+    "@p-ui/utils": "workspace:^"
   }
 }

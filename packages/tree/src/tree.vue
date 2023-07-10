@@ -79,6 +79,21 @@ const handleNodeClick = (data) => {
 const handleDrop = (draggingNode, dropNode, dropType, ev) => {
   emits('draggBack', ev)
 }
+
+/**
+    @prop treeData | 树组件内容 | Array | [] | []
+    @prop treeObject | 树组件配置参数 | Object | {} | {}
+    @prop showCheckbox | 是否显示复选框 | boolean | true false | false
+    @prop nodeKey | 默认展开和选择必须设置的值 | string | - | -
+    @prop defaultProps | 节点属性 | Object | {children:'',label:''} | -
+    @prop defaultExpandedKeys | 展开节点 | Array | [] | []
+    @prop defaultCheckedKeys | 默认选择节点 | Array | [] | []
+    @prop defaultCheckedKeys | 默认选择节点 | Array | [] | []
+    @prop defaultExpandAll | 是都展开全部节点 | boolean | true false | false
+    @prop accordion | 手风琴模式 | boolean | true false | false
+    @prop dragAble | 是否拖拽 | boolean | true false | false
+
+ */
 </script>
 
 <style scoped lang="scss">

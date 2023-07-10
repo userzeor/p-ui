@@ -11,5 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "@p-ui/utils": "workspace:^"
+  },
+  "devDependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "element-plus": "^2.3.6"
   }
 }
