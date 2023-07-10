@@ -14,6 +14,7 @@
       :before-upload="beforeAvatarUpload"
       :list-type="uploadObject.type"
       :auto-upload="uploadObject.autoUpload"
+      drag
     >
       <el-icon class="avatar-uploader-icon" v-if="uploadObject.type === 'picture-card'">
         <Plus />
@@ -22,12 +23,13 @@
     </el-upload>
 
     <el-button class="ml-3" type="success" @click="submitUpload" v-if="!uploadObject.autoUpload">
-      上传
+      {{uploadObject.uploadBtnName}}
     </el-button>
 
     <el-dialog v-model="dialogVisible">
       <img w-full :src="dialogImageUrl" alt="Preview Image" />
     </el-dialog>
+
   </div>
 </template>
 
@@ -96,7 +98,15 @@ const submitUpload = () => {
 }
 
 /**
-  @prop uploadObject | upload配置参数 | Object | {} | {}
+    @prop uploadObject | upload配置参数 | Object | {} | {}
+    @prop type | 文件列表的类型 | 'text''picture''picture-card' | 'text' |
+    @prop limit | 允许上传文件的最大数量 | number | - | 否
+    @prop limit | 允许上传文件的最大数量 | number | - | 否
+    @prop uploadUrl | 请求 URL | string | - | 是
+    @prop fileList | 默认上传文件 | [] | [] | 否
+    @prop autoUpload | 是否自动上传 | boolean | - | 否
+    @prop uploadBtnName | 上传按钮名 | string | - | - |
+
  */
 </script>
 
