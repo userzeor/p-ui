@@ -8,7 +8,9 @@
     :page-info="pageInfo"
     @size-change="handleSizeChange"
     @current-change="handleCurrentChange"
-  ></p-table>
+  >
+    <template #hosPatGender> 666 </template>
+  </p-table>
 </template>
 
 <script setup>
@@ -51,7 +53,8 @@ const columns = [
   },
   {
     prop: 'hosPatGender',
-    label: '性别'
+    label: '性别',
+    slot: 'hosPatGender'
   }
 ]
 

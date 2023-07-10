@@ -2,9 +2,7 @@
   <div class="com-container">
     <el-table :data="data" v-bind="attrs" class="p-table">
       <el-table-column v-for="(item, index) in columns" :key="item.prop" v-bind="item">
-        <template v-if="item.slot" #[item.slot]>
-          <slot :name="item.slot"></slot>
-        </template>
+        <slot v-if="$slots[item.slot]" :name="item.slot"></slot>
       </el-table-column>
     </el-table>
 
@@ -79,7 +77,7 @@ const handleCurrentChange = (cur) => {
 
 /** 抛出ref实例 */
 onMounted(() => {
-  console.log(proxy.$attrs)
+  console.log(proxy)
   exposeObj = useExposeRef(proxy, exposeObj)
 })
 
