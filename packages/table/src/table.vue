@@ -99,6 +99,7 @@ defineExpose(exposeObj)
   // justify-content: space-between;
 }
 .p-pagination {
+  margin: 15px 0;
   :deep(.el-pagination__total) {
     font-size: 14px;
     font-family: PingFangSC-Regular-, PingFangSC-Regular;
