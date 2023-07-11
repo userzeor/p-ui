@@ -1,36 +1,58 @@
 <template>
-  <el-empty :description="imgData[emptyData].text" :image="imgData[emptyData].url" />
+  <el-empty
+    :description="imgData[emptyType].text"
+    :image="$slots['image'] ? '' : imgData[emptyType].url"
+    :image-size="emptyImageSize"
+  >
+    <template v-for="(slotFun, slotName) in $slots" #[slotName]>
+      <slot v-if="$slots[slotName]" :name="slotName"></slot>
+    </template>
+  </el-empty>
 </template>
 
 <script setup name="p-empty">
 import { reactive } from 'vue'
 const props = defineProps({
-  emptyData: {
+  emptyType: {
     type: String,
     default: '1'
-  }
-})
-const imgData = reactive({
-  1: {
-    url: window.location.origin + '/demos/empty/empty-data.png',
-    text: '暂无数据'
   },
-  2: {
-    url: window.location.origin + '/demos/empty/empty-search.png',
-    text: '暂无内容'
-  },
-  3: {
-    url: window.location.origin + '/demos/empty/empty-bugle.png',
-    text: '暂无消息'
-  },
-  4: {
-    url: window.location.origin + '/demos/empty/empty-draw.png',
-    text: '暂无计划'
-  },
-  5: {
-    url: window.location.origin + '/demos/empty/empty-email.png',
-    text: '暂无邮件'
+  emptyImageSize: {
+    type: Number,
+    default: 198
   }
 })
 
+const imgData = reactive({
+  1: {
+    url: new URL('../images/empty-data.png', import.meta.url).href,
+    text: '暂无数据'
+  },
+  2: {
+    url: new URL('../images/empty-search.png', import.meta.url).href,
+    text: '暂无内容'
+  },
+  3: {
+    url: new URL('../images/empty-bugle.png', import.meta.url).href,
+    text: '暂无消息'
+  },
+  4: {
+    url: new URL('../images/empty-draw.png', import.meta.url).href,
+    text: '暂无计划'
+  },
+  5: {
+    url: new URL('../images/empty-email.png', import.meta.url).href,
+    text: '暂无邮件'
+  }
+})
 </script>
+
+<style lang="scss" scoped>
+:deep(.el-empty__description) {
+  --el-empty-description-margin-top: -10px;
+  font-size: 16px;
+  font-family: Microsoft YaHei-Regular, Microsoft YaHei;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 0.85);
+}
+</style>
