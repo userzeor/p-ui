@@ -22,7 +22,8 @@ const treeObject = reactive({
   defaultCheckedKeys: [], // 默认选择节点
   defaultExpandAll: false, // 展开全部节点
   accordion: false, // 手风琴模式
-  dragAble: false // 拖拽
+  dragAble: false, // 拖拽
+  expandOnClickNode: false // 是否在点击节点的时候展开或者收缩节点
 })
 const modelValue = ref('')
 const backNodeClick = (val) => {

@@ -103,7 +103,7 @@ const handleClose = () => {
 }
 </style>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .inner-dialogs {
   .el-dialog__header {
     background-color: #4c75ed;

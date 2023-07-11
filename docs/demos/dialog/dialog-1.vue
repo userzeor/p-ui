@@ -3,7 +3,7 @@
   <p-dialog
     @dialogClose="dialogCloseDef"
     @dialogSuccess="dialogSuccessDef"
-    :dialog-object="dialogObjDelDef"
+    :dialog-object="dialogObject"
 
   >
     <template #dialogContent>
@@ -59,12 +59,12 @@
 import { reactive, ref } from 'vue'
 
 const handleDialogs = () => {
-  dialogObjDelDef.dialogVisible = true
+  dialogObject.dialogVisible = true
 }
 
 const innerVisible = ref(false)
 
-const dialogObjDelDef = reactive({
+const dialogObject = reactive({
   dialogVisible: false,
   title: '弹框标题',
   width: 'big', // small,middle,big,fullScreen
@@ -81,21 +81,21 @@ const dialogObjDelDef = reactive({
 
 // 关闭弹窗
 const dialogCloseDef = () => {
-  dialogObjDelDef.dialogVisible = false
+  dialogObject.dialogVisible = false
 }
 // 确定
 const dialogSuccessDef = () => {
-  dialogObjDelDef.dialogVisible = false
+  dialogObject.dialogVisible = false
 }
 
 const handleClose = () => {
   innerVisible.value = false
-  dialogObjDelDef.dialogVisible = false
+  dialogObject.dialogVisible = false
 }
 
 const handleSuccess = () => {
   innerVisible.value = false
-  dialogObjDelDef.dialogVisible = false
+  dialogObject.dialogVisible = false
 }
 
 const handleInnerBtn = () => {
