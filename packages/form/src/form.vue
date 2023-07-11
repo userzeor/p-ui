@@ -121,14 +121,11 @@ const componentList = shallowReactive({
 // 获取当前实例
 const { proxy } = getCurrentInstance()
 
-/** 合并透传属性 */
-const attrs = computed(() => {
-  return deepAssign(props.formConfig?.form, proxy.$attrs)
-})
-
 // 默认的form表单配置项
 const defaultFormConfig = {
-  form: {},
+  form: {
+    ref: 'myForm'
+  },
   row: {
     //栅格间隔
     gutter: 16
@@ -142,6 +139,11 @@ const defaultFormConfig = {
 // 合并后的form表单配置项
 const formConfig = computed(() => {
   return deepAssign({}, defaultFormConfig, props.formConfig)
+})
+
+/** 合并透传属性 */
+const attrs = computed(() => {
+  return deepAssign(formConfig.value?.form, proxy.$attrs)
 })
 
 // 表单间隔间距

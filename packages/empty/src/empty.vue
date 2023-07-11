@@ -25,23 +25,24 @@ const props = defineProps({
 
 const imgData = reactive({
   1: {
-    url: new URL('../images/empty-data.png', import.meta.url).href,
+    url: 'empty-data.png',
+    // url: new URL('../images/empty-data.png', import.meta.url).href,
     text: '暂无数据'
   },
   2: {
-    url: new URL('../images/empty-search.png', import.meta.url).href,
+    // url: new URL('../images/empty-search.png', import.meta.url).href,
     text: '暂无内容'
   },
   3: {
-    url: new URL('../images/empty-bugle.png', import.meta.url).href,
+    // url: new URL('../images/empty-bugle.png', import.meta.url).href,
     text: '暂无消息'
   },
   4: {
-    url: new URL('../images/empty-draw.png', import.meta.url).href,
+    // url: new URL('../images/empty-draw.png', import.meta.url).href,
     text: '暂无计划'
   },
   5: {
-    url: new URL('../images/empty-email.png', import.meta.url).href,
+    // url: new URL('../images/empty-email.png', import.meta.url).href,
     text: '暂无邮件'
   }
 })
