@@ -8,7 +8,7 @@
 <script setup name="p-echarts">
 // 按需导入需要用到的 vue函数 和 echarts
 import * as echarts from 'echarts'
-import { ref, onMounted, onBeforeUnmount, defineProps, watch } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 
 // 获取 dom 和 父组件数据 并定义"myChart"用于初始化图表
 const chartDom = ref()

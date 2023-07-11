@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <el-tree
       ref="treeRef"
       :data="treeData"
@@ -21,7 +20,7 @@
 </template>
 
 <script setup name="p-tree">
-import { ref, watch, defineProps } from 'vue'
+import { ref, watch } from 'vue'
 import { useVModel } from '@vueuse/core'
 // const filterText = ref('222')
 const emits = defineEmits(['nodeClickBack', 'draggBack', 'update:modelValue'])

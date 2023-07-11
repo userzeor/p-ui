@@ -128,7 +128,9 @@ const attrs = computed(() => {
 
 // 默认的form表单配置项
 const defaultFormConfig = {
-  form: {},
+  form: {
+    ref: 'myForm'
+  },
   row: {
     //栅格间隔
     gutter: 16
