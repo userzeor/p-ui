@@ -17,6 +17,7 @@
       <el-button type="primary">操作</el-button>
     </template>
     <template #append> <div style="text-align: center">插入到最后</div> </template>
+    <template #empty> <div style="text-align: center">插入到最后</div> </template>
   </p-table>
 </template>
 
@@ -66,8 +67,8 @@ const columns = [
 ]
 
 const tableConfig = {
-  ref: 'elTable',
-  slots: ['append', 'empty']
+  ref: 'elTable'
+  // slots: ['append', 'empty']
 }
 
 const pageInfo = reactive({
