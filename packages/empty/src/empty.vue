@@ -29,7 +29,8 @@ const props = defineProps({
 
 const imgData = reactive({
   1: {
-    url: props.emptyImageUrl + 'empty-data.png',
+    // url: props.emptyImageUrl + 'empty-data.png',
+    url: new URL(props.emptyImageUrl + '/empty-data.png', import.meta.url).href,
     // url: new URL('../images/empty-data.png', import.meta.url).href,
     text: '暂无数据'
   },
