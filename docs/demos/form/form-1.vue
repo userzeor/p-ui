@@ -2,7 +2,6 @@
   <p-form
     ref="uForm"
     v-model="formModel"
-    :form-config="formConfig"
     :options="options"
     @submit="formSubmit"
     @modelChange="modelChange"
