@@ -1,10 +1,6 @@
 {
   "name": "p-ui",
-<<<<<<< HEAD
-  "version": "1.0.35",
-=======
   "version": "1.0.36",
->>>>>>> 1a63a5a55cff0d19af5b782d3384bae1f0303be3
   "description": "",
   "main": "./lib/p-ui.umd.js",
   "module": "./lib/p-ui.es.js",
