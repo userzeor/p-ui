@@ -1,5 +1,5 @@
 <template>
-  <p-empty :empty-type="emptyType" empty-image-url="/demos/empty/images">
+  <p-empty :empty-type="emptyType" empty-image-url="/demos/empty/images/">
     <el-button type="primary">Button</el-button>
     <!-- <template #image> imgage </template> -->
     <template #description> 提示文字 </template>
