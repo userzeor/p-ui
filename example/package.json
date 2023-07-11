@@ -13,7 +13,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@p-ui/p-ui": "workspace:^",
     "element-plus": "^2.3.6"
   }
 }

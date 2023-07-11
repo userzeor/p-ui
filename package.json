@@ -9,6 +9,7 @@
     "package.json",
     "README.md"
   ],
+  "style": "lib/style.css",
   "private": false,
   "type": "module",
   "scripts": {

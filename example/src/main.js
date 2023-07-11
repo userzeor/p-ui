@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import PUI from '@p-ui/p-ui'
+import PUI from 'p-ui'
 
 import './style.css'
 import App from './App.vue'
