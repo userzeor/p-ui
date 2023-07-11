@@ -37,6 +37,12 @@ pnpm install --registry <http://localhost:4873/>
 pnpm install p-ui --registry <http://localhost:4873/>
 ```
 
+## 更新组件库
+
+```shell
+pnpm update p-ui --registry http://localhost:4873/
+```
+
 ## 如果提示无权限, 先登录
 
 ```shell
