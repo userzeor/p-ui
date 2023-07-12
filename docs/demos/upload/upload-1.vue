@@ -1,7 +1,12 @@
 <template>
-  <p-upload :upload-object="uploadObject">
+  <p-upload
+    :upload-object="uploadObject"
+    @successMessage="successMessage"
+    @uploadRef="uploadRef"
+  >
 
   </p-upload>
+  <el-button @click="handleUpload">上传2</el-button>
 </template>
 
 <script setup>
@@ -13,18 +18,33 @@ const uploadObject = reactive({
   multiple: false, // 是否支持多选文件
   rawFileSize: 4, // 上传文件最大值
   fileList: [
-    {
-      name: 'element-plus-logo.svg',
-      url: 'https://element-plus.org/images/element-plus-logo.svg'
-    },
-    {
-      name: 'element-plus-logo2.svg',
-      url: 'https://element-plus.org/images/element-plus-logo.svg'
-    }
+    // {
+    //   name: 'element-plus-logo.svg',
+    //   url: 'https://element-plus.org/images/element-plus-logo.svg'
+    // },
+    // {
+    //   name: 'element-plus-logo2.svg',
+    //   url: 'https://element-plus.org/images/element-plus-logo.svg'
+    // }
   ],
-  autoUpload: true, // 是否自动上传
-  uploadBtnName: '上传'
+  autoUpload: false, // 是否自动上传
+  drag: false, // 是否拖拽
+  accept: '.xlsx, .xls', // 接受上传的文件类型
+  headers: '' // 上传头部
 })
+
+let upRef = null
+const successMessage = (val) => {
+
+}
+
+const uploadRef = (val) => {
+  upRef = val
+}
+
+const handleUpload = () => {
+  upRef.value.submit()
+}
 </script>
 
 <style scoped lang="scss"></style>

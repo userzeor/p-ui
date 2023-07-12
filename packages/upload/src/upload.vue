@@ -14,20 +14,47 @@
       :before-upload="beforeAvatarUpload"
       :list-type="uploadObject.type"
       :auto-upload="uploadObject.autoUpload"
-      drag
+      :drag="uploadObject.drag"
+      :accept="uploadObject.accept"
+      :headers="uploadObject.headers"
+      :on-success="handleFileSuccess"
+      :on-change="handleFileChange"
     >
-      <el-icon class="avatar-uploader-icon" v-if="uploadObject.type === 'picture-card'">
+      <el-icon
+        class="avatar-uploader-icon"
+        v-if="uploadObject.type === 'picture-card'"
+      >
         <Plus />
       </el-icon>
-      <el-button v-else type="primary">Click to upload</el-button>
+      <div v-else-if="uploadObject.drag">
+        <el-icon class="el-icon--upload"><upload-filled /></el-icon>
+        <div class="el-upload__text">
+          将文件拖到此处或 <em>点击上传</em>
+        </div>
+      </div>
+
+      <el-button
+        v-else
+        type="primary"
+      >上传</el-button>
+
     </el-upload>
 
-    <el-button class="ml-3" type="success" @click="submitUpload" v-if="!uploadObject.autoUpload">
+    <!-- <el-button
+      class="ml-3"
+      type="success"
+      @click="submitUpload"
+      v-if="!uploadObject.autoUpload"
+    >
       {{uploadObject.uploadBtnName}}
-    </el-button>
+    </el-button> -->
 
     <el-dialog v-model="dialogVisible">
-      <img w-full :src="dialogImageUrl" alt="Preview Image" />
+      <img
+        w-full
+        :src="dialogImageUrl"
+        alt="Preview Image"
+      />
     </el-dialog>
 
   </div>
@@ -42,9 +69,10 @@ const dialogVisible = ref(false)
 const props = defineProps({
   uploadObject: {
     type: Object,
-    default: () => {}
+    default: () => { }
   }
 })
+const emits = defineEmits(['successMessage', 'uploadRef'])
 const fileList = computed(() => {
   return props.uploadObject.fileList
 })
@@ -89,12 +117,21 @@ const beforeAvatarUpload = (rawFile) => {
     ElMessage.error(`上传的图片超过了${props.uploadObject.rawFileSize}M !`)
     return false
   }
+
   return true
 }
 
 const uploadRef = ref('uploadRef')
 const submitUpload = () => {
   uploadRef.value.submit()
+}
+
+const handleFileChange = (uploadFile, uploadFiles) => {
+  emits('uploadRef', uploadRef)
+}
+
+const handleFileSuccess = (res, uploadFile, uploadFiles) => {
+  emits('successMessage', res, uploadFile, uploadFiles)
 }
 
 /**
@@ -105,7 +142,6 @@ const submitUpload = () => {
     @prop uploadUrl | 请求 URL | string | - | 是
     @prop fileList | 默认上传文件 | [] | [] | 否
     @prop autoUpload | 是否自动上传 | boolean | - | 否
-    @prop uploadBtnName | 上传按钮名 | string | - | - |
 
  */
 </script>
