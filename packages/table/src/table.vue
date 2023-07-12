@@ -4,6 +4,7 @@
       <el-table-column v-for="(item, index) in columns" :key="item.prop" v-bind="item">
         <template v-if="$slots[item.slot]" #default="{ row, column, $index }">
           <slot
+            v-if="$index !== -1"
             :name="item.slot"
             :row="row"
             :column="column"
@@ -20,8 +21,11 @@
           ></slot>
         </template>
       </el-table-column>
-      <template v-for="(slotName, index) in tableConfig.slots" #[slotName]>
-        <slot v-if="$slots[slotName]" :name="slotName" :index="index"></slot>
+      <template v-for="(slotFun, slotName) in $slots" #[slotName]>
+        <slot v-if="$slots[slotName]" :name="slotName"></slot>
+      </template>
+      <template v-if="!$slots['empty']" #empty>
+        <p-empty empty-type="1"></p-empty>
       </template>
     </el-table>
 

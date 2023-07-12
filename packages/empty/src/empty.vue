@@ -23,33 +23,33 @@ const props = defineProps({
   },
   emptyImageUrl: {
     type: String,
-    default: ''
+    default: '/src/assets/images/empty/'
   }
 })
 
 const imgData = reactive({
   1: {
-    url: props.emptyImageUrl + 'empty-data.png',
+    url: window.location.origin + props.emptyImageUrl + 'empty-data.png',
     // url: new URL('../images/empty-data.png', import.meta.url).href,
     text: '暂无数据'
   },
   2: {
-    url: props.emptyImageUrl + 'empty-search.png',
+    url: window.location.origin + props.emptyImageUrl + 'empty-search.png',
     // url: new URL('../images/empty-search.png', import.meta.url).href,
     text: '暂无内容'
   },
   3: {
-    url: props.emptyImageUrl + 'empty-bugle.png',
+    url: window.location.origin + props.emptyImageUrl + 'empty-bugle.png',
     // url: new URL('../images/empty-bugle.png', import.meta.url).href,
     text: '暂无消息'
   },
   4: {
-    url: props.emptyImageUrl + 'empty-draw.png',
+    url: window.location.origin + props.emptyImageUrl + 'empty-draw.png',
     // url: new URL('../images/empty-draw.png', import.meta.url).href,
     text: '暂无计划'
   },
   5: {
-    url: props.emptyImageUrl + 'empty-email.png',
+    url: window.location.origin + props.emptyImageUrl + 'empty-email.png',
     // url: new URL('../images/empty-email.png', import.meta.url).href,
     text: '暂无邮件'
   }
