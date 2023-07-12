@@ -18,6 +18,7 @@
       :accept="uploadObject.accept"
       :headers="uploadObject.headers"
       :on-success="handleFileSuccess"
+      :on-change="handleFileChange"
     >
       <el-icon
         class="avatar-uploader-icon"
@@ -39,14 +40,14 @@
 
     </el-upload>
 
-    <el-button
+    <!-- <el-button
       class="ml-3"
       type="success"
       @click="submitUpload"
       v-if="!uploadObject.autoUpload"
     >
       {{uploadObject.uploadBtnName}}
-    </el-button>
+    </el-button> -->
 
     <el-dialog v-model="dialogVisible">
       <img
@@ -71,7 +72,7 @@ const props = defineProps({
     default: () => { }
   }
 })
-const emits = defineEmits(['successMessage'])
+const emits = defineEmits(['successMessage', 'uploadRef'])
 const fileList = computed(() => {
   return props.uploadObject.fileList
 })
@@ -116,12 +117,17 @@ const beforeAvatarUpload = (rawFile) => {
     ElMessage.error(`上传的图片超过了${props.uploadObject.rawFileSize}M !`)
     return false
   }
+
   return true
 }
 
 const uploadRef = ref('uploadRef')
 const submitUpload = () => {
   uploadRef.value.submit()
+}
+
+const handleFileChange = (uploadFile, uploadFiles) => {
+  emits('uploadRef', uploadRef)
 }
 
 const handleFileSuccess = (res, uploadFile, uploadFiles) => {
@@ -136,7 +142,6 @@ const handleFileSuccess = (res, uploadFile, uploadFiles) => {
     @prop uploadUrl | 请求 URL | string | - | 是
     @prop fileList | 默认上传文件 | [] | [] | 否
     @prop autoUpload | 是否自动上传 | boolean | - | 否
-    @prop uploadBtnName | 上传按钮名 | string | - | - |
 
  */
 </script>
