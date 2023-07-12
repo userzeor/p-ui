@@ -88,7 +88,6 @@ const fileList = computed(() => {
 watch(
   () => props.uploadObject.cleanFile,
   () => {
-    console.log(props.uploadObject.cleanFile)
     if (props.uploadObject.cleanFile) {
       uploadRef.value.clearFiles()
     }
