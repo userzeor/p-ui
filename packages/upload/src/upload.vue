@@ -19,6 +19,8 @@
       :headers="uploadObject.headers"
       :on-success="handleFileSuccess"
       :on-change="handleFileChange"
+      :on-progress="handleFileUploadProgress"
+      :disabled="isUploading"
     >
       <el-icon
         class="avatar-uploader-icon"
@@ -61,7 +63,7 @@
 </template>
 
 <script setup name="p-upload">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { Plus } from '@element-plus/icons-vue'
 const dialogImageUrl = ref('')
@@ -72,10 +74,27 @@ const props = defineProps({
     default: () => { }
   }
 })
+const isUploading = ref(false)
 const emits = defineEmits(['successMessage', 'uploadRef'])
 const fileList = computed(() => {
   return props.uploadObject.fileList
 })
+
+// const cleanFile = computed(() => {
+//   console.log(props.uploadObject.cleanFile)
+//   return props.uploadObject.cleanFile
+// })
+
+watch(
+  () => props.uploadObject.cleanFile,
+  () => {
+    console.log(props.uploadObject.cleanFile)
+    if (props.uploadObject.cleanFile) {
+      uploadRef.value.clearFiles()
+    }
+  },
+  { deep: true }
+)
 
 const hideUpload = computed(() => {
   return fileList.value.length >= props.uploadObject.limit
@@ -108,6 +127,11 @@ const beforeRemove = (uploadFile, uploadFiles) => {
   }
 }
 
+// 文件上传时的钩子
+const handleFileUploadProgress = () => {
+  isUploading.value = true
+}
+
 const beforeAvatarUpload = (rawFile) => {
   //   if (rawFile.type !== 'image/jpeg') {
   //     ElMessage.error('Avatar picture must be JPG format!')
@@ -122,15 +146,14 @@ const beforeAvatarUpload = (rawFile) => {
 }
 
 const uploadRef = ref('uploadRef')
-const submitUpload = () => {
-  uploadRef.value.submit()
-}
 
 const handleFileChange = (uploadFile, uploadFiles) => {
   emits('uploadRef', uploadRef)
 }
 
 const handleFileSuccess = (res, uploadFile, uploadFiles) => {
+  console.log(res, uploadFile, uploadFiles)
+  isUploading.value = false
   emits('successMessage', res, uploadFile, uploadFiles)
 }
 
