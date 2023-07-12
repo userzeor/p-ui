@@ -14,20 +14,43 @@
       :before-upload="beforeAvatarUpload"
       :list-type="uploadObject.type"
       :auto-upload="uploadObject.autoUpload"
-      drag
+      :drag="uploadObject.drag"
     >
-      <el-icon class="avatar-uploader-icon" v-if="uploadObject.type === 'picture-card'">
+      <el-icon
+        class="avatar-uploader-icon"
+        v-if="uploadObject.type === 'picture-card'"
+      >
         <Plus />
       </el-icon>
-      <el-button v-else type="primary">Click to upload</el-button>
+      <div v-else-if="uploadObject.drag">
+        <el-icon class="el-icon--upload"><upload-filled /></el-icon>
+        <div class="el-upload__text">
+          将文件拖到此处或 <em>点击上传</em>
+        </div>
+      </div>
+
+      <el-button
+        v-else
+        type="primary"
+      >上传</el-button>
+
     </el-upload>
 
-    <el-button class="ml-3" type="success" @click="submitUpload" v-if="!uploadObject.autoUpload">
+    <el-button
+      class="ml-3"
+      type="success"
+      @click="submitUpload"
+      v-if="!uploadObject.autoUpload"
+    >
       {{uploadObject.uploadBtnName}}
     </el-button>
 
     <el-dialog v-model="dialogVisible">
-      <img w-full :src="dialogImageUrl" alt="Preview Image" />
+      <img
+        w-full
+        :src="dialogImageUrl"
+        alt="Preview Image"
+      />
     </el-dialog>
 
   </div>
@@ -42,7 +65,7 @@ const dialogVisible = ref(false)
 const props = defineProps({
   uploadObject: {
     type: Object,
-    default: () => {}
+    default: () => { }
   }
 })
 const fileList = computed(() => {

@@ -23,7 +23,8 @@ const uploadObject = reactive({
     }
   ],
   autoUpload: true, // 是否自动上传
-  uploadBtnName: '上传'
+  uploadBtnName: '上传',
+  drag: false // 是否拖拽
 })
 </script>
 
