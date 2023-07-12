@@ -16,8 +16,15 @@
       {{ $index }}
       <el-button type="primary">操作</el-button>
     </template>
+    <template #status="{ row }">
+      <el-switch
+        v-model="row.status"
+        active-value="0"
+        inactive-value="1"
+        @change="handleStatusChange(row)"
+      ></el-switch>
+    </template>
     <template #append> <div style="text-align: center">插入到最后</div> </template>
-    <template #empty> <div style="text-align: center">插入到最后</div> </template>
   </p-table>
 </template>
 
@@ -35,7 +42,10 @@ const getTableData = async () => {
   })
   const data = await res.json()
   console.log(data)
-  tableData.value = data.records
+  tableData.value = data.records.map((val) => {
+    val.status = '1'
+    return val
+  })
   pageInfo.total = data.total
 }
 
@@ -56,6 +66,12 @@ const columns = [
     label: '年龄'
   },
   {
+    prop: 'status',
+    label: '状态',
+    width: '100',
+    slot: 'status'
+  },
+  {
     prop: 'hosAdmSpecName',
     label: '科室'
   },
@@ -68,7 +84,6 @@ const columns = [
 
 const tableConfig = {
   ref: 'elTable'
-  // slots: ['append', 'empty']
 }
 
 const pageInfo = reactive({
@@ -99,8 +114,13 @@ const myTable = ref(null)
 
 onMounted(() => {
   console.log(myTable.value)
-  // getTableData()
 })
+
+const handleStatusChange = (row) => {
+  alert(row.status)
+}
+
+getTableData()
 </script>
 
 <style scoped lang="scss"></style>

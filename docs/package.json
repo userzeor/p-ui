@@ -19,6 +19,6 @@
     "@p-ui/p-ui": "workspace:^",
     "@vitepress-demo-preview/component": "^2.3.0",
     "@vitepress-demo-preview/plugin": "^1.1.11",
-    "element-plus": "^2.3.6"
+    "element-plus": "^2.3.7"
   }
 }
