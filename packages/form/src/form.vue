@@ -10,7 +10,8 @@
               :item-config="item"
               :form-config="formConfig"
               :instance="proxy"
-              @[eventBtnGroup(item)]="btnSubmit"
+              @[eventBtnSubmit(item)]="btnSubmit"
+              @[eventBtnReset(item)]="btnReset"
               :ref="setRef"
             >
               <template v-if="item.type == 'slot' && item.slotName" #[item.slotName]>
@@ -158,7 +159,7 @@ const gutter = computed(() => {
 })
 
 // 动态添加事件，只有传入btnGroup才监听submit事件
-const eventBtnGroup = computed(() => {
+const eventBtnSubmit = computed(() => {
   return (item) => {
     if (item.type == 'btnGroup') {
       return 'submit'
@@ -168,9 +169,25 @@ const eventBtnGroup = computed(() => {
   }
 })
 
+// 动态添加事件，只有传入btnGroup才监听reset事件
+const eventBtnReset = computed(() => {
+  return (item) => {
+    if (item.type == 'btnGroup') {
+      return 'reset'
+    } else {
+      return ''
+    }
+  }
+})
+
 // 当有type为btnGroup时,提供提交事件回调
 const btnSubmit = (valid) => {
   emit('submit', valid)
+}
+
+// 当有type为btnGroup时,提供提交事件回调
+const btnReset = () => {
+  emit('reset')
 }
 
 // 表单组件按回车会触发提交回调，同样抛出

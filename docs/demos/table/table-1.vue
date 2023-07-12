@@ -1,6 +1,7 @@
 <template>
   <p-table
     ref="myTable"
+    :loading="loading"
     :data="tableData"
     :columns="columns"
     :table-config="tableConfig"
@@ -31,8 +32,10 @@
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 let tableData = ref([])
+const loading = ref(false)
 
 const getTableData = async () => {
+  loading.value = true
   const res = await fetch('http://192.168.1.32:4242/hoip/page-patient-grade', {
     method: 'post',
     body: JSON.stringify({ hosAdmSpec: '', gradeId: '', ...pageInfo }),
@@ -41,6 +44,7 @@ const getTableData = async () => {
     }
   })
   const data = await res.json()
+  loading.value = false
   console.log(data)
   tableData.value = data.records.map((val) => {
     val.status = '1'
@@ -73,7 +77,10 @@ const columns = [
   },
   {
     prop: 'hosAdmSpecName',
-    label: '科室'
+    label: '科室',
+    render({ row, column, $index }) {
+      return `<span style="color:red;">${row.hosAdmSpecName}</span>`
+    }
   },
   {
     prop: 'hosPatGender',

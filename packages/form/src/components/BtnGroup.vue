@@ -7,7 +7,7 @@
 </template>
 
 <script setup name="BtnGroup">
-const emit = defineEmits(['submit'])
+const emit = defineEmits(['submit', 'reset'])
 const props = defineProps({
   /** 传入的json的当前项的配置 */
   itemConfig: {
@@ -40,6 +40,7 @@ const resetForm = () => {
   const formEl = props.instance.$refs[props.formConfig.form?.ref]
   if (!formEl) return
   formEl.resetFields()
+  emit('reset')
 }
 </script>
 <style lang="scss" scoped></style>

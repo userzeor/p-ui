@@ -1,6 +1,6 @@
 <template>
   <div class="com-container">
-    <el-table :data="data" v-bind="attrs" class="p-table">
+    <el-table v-loading="loading" :data="data" v-bind="attrs" class="p-table">
       <el-table-column v-for="(item, index) in columns" :key="item.prop" v-bind="item">
         <template v-if="$slots[item.slot]" #default="{ row, column, $index }">
           <slot
@@ -11,6 +11,15 @@
             :columnIndex="index"
             :$index="$index"
           ></slot>
+        </template>
+        <template v-if="item.render" #default="{ row, column, $index }">
+          <component
+            :is="item.render"
+            :row="row"
+            :column="column"
+            :columnIndex="index"
+            :$index="$index"
+          ></component>
         </template>
         <template v-if="$slots[item.headerSlot]" #header="{ column, $index }">
           <slot
@@ -36,7 +45,7 @@
       :page-sizes="pageInfoModel.pageSizes || [10, 20, 50, 100]"
       :disabled="pageInfoModel.disabled || false"
       :background="pageInfoModel.background || true"
-      :layout="pageInfoModel.layout || 'total, prev, pager, next, sizes, jumper, slot'"
+      :layout="pageInfoModel.layout || '->, total, prev, pager, next, sizes, jumper, slot'"
       :total="pageInfoModel.total"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
@@ -74,6 +83,10 @@ const props = defineProps({
   pageInfo: {
     type: Object,
     default: () => {}
+  },
+  loading: {
+    type: Boolean,
+    default: false
   }
 })
 

@@ -4,6 +4,7 @@
     v-model="formModel"
     :options="options"
     @submit="formSubmit"
+    @reset="formReset"
     @modelChange="modelChange"
   >
     <template #myInput>
@@ -205,6 +206,10 @@ const uForm = ref(null)
 const formSubmit = (valid) => {
   alert('dsdsd')
   console.log(valid)
+}
+
+const formReset = () => {
+  console.log('reset')
 }
 
 const modelChange = (val) => {
