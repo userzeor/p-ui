@@ -6,7 +6,7 @@
   >
 
   </p-upload>
-  <el-button @click="handleUpload">上传2</el-button>
+  <el-button @click="handleUpload">上传</el-button>
 </template>
 
 <script setup>
@@ -30,12 +30,14 @@ const uploadObject = reactive({
   autoUpload: false, // 是否自动上传
   drag: false, // 是否拖拽
   accept: '.xlsx, .xls', // 接受上传的文件类型
-  headers: '' // 上传头部
+  headers: '', // 上传头部
+  cleanFile: false // 清空上传文件
 })
 
 let upRef = null
-const successMessage = (val) => {
-
+// 上传成功的回调
+const successMessage = (res, uploadFile, uploadFiles) => {
+  console.log(res, uploadFile, uploadFiles, 1111)
 }
 
 const uploadRef = (val) => {
@@ -45,6 +47,7 @@ const uploadRef = (val) => {
 const handleUpload = () => {
   upRef.value.submit()
 }
+
 </script>
 
 <style scoped lang="scss"></style>
