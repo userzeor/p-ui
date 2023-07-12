@@ -1,5 +1,8 @@
 <template>
-  <p-upload :upload-object="uploadObject">
+  <p-upload
+    :upload-object="uploadObject"
+    @successMessage="successMessage"
+  >
 
   </p-upload>
 </template>
@@ -24,8 +27,14 @@ const uploadObject = reactive({
   ],
   autoUpload: true, // 是否自动上传
   uploadBtnName: '上传',
-  drag: false // 是否拖拽
+  drag: false, // 是否拖拽
+  accept: '.xlsx, .xls', // 接受上传的文件类型
+  headers: '' // 上传头部
 })
+
+const successMessage = (val) => {
+
+}
 </script>
 
 <style scoped lang="scss"></style>

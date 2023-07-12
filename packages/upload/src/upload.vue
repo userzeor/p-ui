@@ -15,6 +15,9 @@
       :list-type="uploadObject.type"
       :auto-upload="uploadObject.autoUpload"
       :drag="uploadObject.drag"
+      :accept="uploadObject.accept"
+      :headers="uploadObject.headers"
+      :on-success="handleFileSuccess"
     >
       <el-icon
         class="avatar-uploader-icon"
@@ -68,6 +71,7 @@ const props = defineProps({
     default: () => { }
   }
 })
+const emits = defineEmits(['successMessage'])
 const fileList = computed(() => {
   return props.uploadObject.fileList
 })
@@ -118,6 +122,10 @@ const beforeAvatarUpload = (rawFile) => {
 const uploadRef = ref('uploadRef')
 const submitUpload = () => {
   uploadRef.value.submit()
+}
+
+const handleFileSuccess = (res, uploadFile, uploadFiles) => {
+  emits('successMessage', res, uploadFile, uploadFiles)
 }
 
 /**
