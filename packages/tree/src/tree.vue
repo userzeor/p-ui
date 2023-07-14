@@ -9,18 +9,6 @@ import { ref, watch } from 'vue'
 
 // const filterText = ref('222')
 const props = defineProps({
-  treeData: {
-    default() {
-      return {}
-    },
-    type: Array
-  },
-  treeObject: {
-    default() {
-      return {}
-    },
-    type: Object
-  },
   modelValue: {
     type: String,
     default() {

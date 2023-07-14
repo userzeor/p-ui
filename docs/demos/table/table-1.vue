@@ -56,14 +56,15 @@ const getTableData = async () => {
   pageInfo.total = data.total
 }
 
-const columns = [
+const columns = reactive([
   {
     type: 'selection',
     'reserve-selection': true
   },
   {
     prop: 'hosAdmNo',
-    label: '编号'
+    label: '编号',
+    visible: false
   },
   {
     prop: 'hosPatName',
@@ -153,7 +154,7 @@ const columns = [
     label: '性别',
     slot: 'hosPatGender'
   }
-]
+])
 
 const tableConfig = {
   ref: 'elTable'
