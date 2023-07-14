@@ -1,40 +1,47 @@
 <template>
-  <el-button text @click="handleDialogs"> click to open the Dialog </el-button>
+  <el-button
+    text
+    @click="handleDialogs"
+  > click to open the Dialog </el-button>
+
   <p-dialog
     @dialogClose="dialogCloseDef"
     @dialogSuccess="dialogSuccessDef"
     :dialog-object="dialogObject"
-
   >
     <template #dialogContent>
       <div>我是弹框内容</div>
 
       <el-dialog
-          v-model="innerVisible"
-          width="30%"
-          title="嵌套弹框"
-          append-to-body
-          :before-close="handleinnerCloses"
-          draggable
-          custom-class="inner-dialogs"
-          :modal='false'
-          :close-on-click-modal="false"
-          modal-class="innerModal"
-        >
-          <div class="innerContent">
-            我是嵌套弹框内容
-          </div>
+        v-model="innerVisible"
+        width="30%"
+        title="嵌套弹框"
+        append-to-body
+        :before-close="handleinnerCloses"
+        draggable
+        custom-class="inner-dialogs"
+        :modal='false'
+        :close-on-click-modal="false"
+        modal-class="innerModal"
+      >
+        <div class="innerContent">
+          我是嵌套弹框内容
+        </div>
 
-          <div class="innerFooter">
-            <span class="inner-dialog-footer" >
+        <div class="innerFooter">
+          <span class="inner-dialog-footer">
 
-              <el-button @click="handleinnerCloses">
-                取消
-              </el-button>
-               <el-button type="primary" @click="handleinnerSuccess" class="inner-btn">确定</el-button>
-            </span>
-          </div>
-        </el-dialog>
+            <el-button @click="handleinnerCloses">
+              取消
+            </el-button>
+            <el-button
+              type="primary"
+              @click="handleinnerSuccess"
+              class="inner-btn"
+            >确定</el-button>
+          </span>
+        </div>
+      </el-dialog>
     </template>
 
     <!-- <template #innerDialogContent>
@@ -42,16 +49,20 @@
     </template> -->
 
     <template #footer>
-        <span class="dialog-footer" >
-          <el-button  @click="handleClose">取消</el-button>
-          <el-button type="primary" @click="handleSuccess">
-              确定
-          </el-button>
-          <el-button @click="handleInnerBtn" >
-            嵌套弹框
-          </el-button>
-        </span>
+      <span class="dialog-footer">
+        <el-button @click="handleClose">取消</el-button>
+        <el-button
+          type="primary"
+          @click="handleSuccess"
+        >
+          确定
+        </el-button>
+        <el-button @click="handleInnerBtn">
+          嵌套弹框
+        </el-button>
+      </span>
     </template>
+
   </p-dialog>
 </template>
 
@@ -114,7 +125,7 @@ const handleinnerSuccess = () => {
 
 <style lang="scss">
 .inner-dialogs {
-    pointer-events: auto;
+  pointer-events: auto;
   .el-dialog__header {
     background-color: #4c75ed;
     margin-right: 0px;
@@ -141,8 +152,7 @@ const handleinnerSuccess = () => {
   }
 }
 
-.innerModal{
-    pointer-events: none;
+.innerModal {
+  pointer-events: none;
 }
-
 </style>

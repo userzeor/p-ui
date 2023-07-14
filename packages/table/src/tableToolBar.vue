@@ -10,8 +10,9 @@
             <el-popover width="auto" trigger="click">
               <el-input v-model="searchText" placeholder="请输入" />
               <p-tree
-                :treeData="treeData"
-                :treeObject="treeObject"
+                :data="treeData"
+                :showCheckbox="true"
+                nodeKey="_uniqueKey"
                 v-model="searchText"
                 @check-change="backNodeClick"
                 @draggBack="draggBack"

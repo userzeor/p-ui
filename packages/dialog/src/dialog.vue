@@ -2,26 +2,26 @@
   <div class="p-dialog">
     <el-dialog
       v-model="dialogVisible"
-      :title="dialogData.title"
+      :title="dialogObject.title"
       :width="dialogData.width"
       :before-close="handleClose"
       :draggable="dialogData.draggable"
-        :close-on-click-modal="false"
-        :modal='false'
+      :close-on-click-modal="false"
+      :modal='false'
     >
       <div>
         <slot name="dialogContent"> </slot>
       </div>
 
       <template #footer>
-         <slot name="footer"></slot>
+        <slot name="footer"></slot>
       </template>
     </el-dialog>
   </div>
 </template>
 
 <script setup name="p-dialog">
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 const emits = defineEmits(['dialogSuccess', 'dialogClose'])
 /**
     @prop dialogObjDelDef | dialog配置参数 | Object | {} | {}
@@ -34,7 +34,7 @@ const emits = defineEmits(['dialogSuccess', 'dialogClose'])
  */
 const props = defineProps({
   dialogObject: {
-    default() {
+    default () {
       return {}
     },
     type: Object
@@ -58,6 +58,14 @@ const dialogData = {
   draggable: props.dialogObject.draggable || false
 
 }
+
+watch(
+  () => props.dialogObject.title,
+  () => {
+    dialogData.title = props.dialogObject.title
+  },
+  { deep: true }
+)
 
 const handleClose = () => {
   emits('dialogClose', false)
