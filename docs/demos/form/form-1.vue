@@ -161,6 +161,24 @@ const options = reactive([
       }
     },
     {
+      type: 'timePicker',
+      field: 'section_sss',
+      title: '活动日期',
+      col: {
+        span: 12
+      },
+      props: {}
+    },
+    {
+      type: 'timeSelect',
+      field: 'section_ssss',
+      title: '活动日期',
+      col: {
+        span: 12
+      },
+      props: {}
+    },
+    {
       type: 'upload',
       title: '图片上传',
       field: 'imgList',

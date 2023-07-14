@@ -9,6 +9,8 @@
     :page-info="pageInfo"
     @size-change="handleSizeChange"
     @current-change="handleCurrentChange"
+    row-key="hosAdmNo"
+    @selection-change="selectionChange"
   >
     <template #hosPatGender="{ row, column, columnIndex, $index }">
       {{ row.hosPatGender }}
@@ -25,6 +27,7 @@
         @change="handleStatusChange(row)"
       ></el-switch>
     </template>
+    <template #age="{ row }"> sdda </template>
     <template #append> <div style="text-align: center">插入到最后</div> </template>
   </p-table>
 </template>
@@ -55,7 +58,8 @@ const getTableData = async () => {
 
 const columns = [
   {
-    type: 'selection'
+    type: 'selection',
+    'reserve-selection': true
   },
   {
     prop: 'hosAdmNo',
@@ -63,11 +67,65 @@ const columns = [
   },
   {
     prop: 'hosPatName',
-    label: '患者名称'
+    label: '患者名称',
+    align: 'center',
+    children: [
+      {
+        prop: 'hosAdmDocName',
+        label: '医生名称1',
+        children: [
+          {
+            prop: 'age',
+            label: '年龄1',
+            align: 'center',
+            render(h, { row }) {
+              return h(
+                'span',
+                {
+                  style: {
+                    color: 'red'
+                  }
+                },
+                row.age
+              )
+            }
+          },
+          {
+            prop: 'hosAdmSpecCode',
+            label: '科室编码',
+            width: '80',
+            type: 'expand'
+          }
+        ]
+      },
+      {
+        prop: 'hosAdmDocName',
+        label: '医生名称2',
+        children: [
+          {
+            prop: 'age',
+            label: '年龄2',
+            slot: 'age2'
+          }
+        ]
+      },
+      {
+        prop: 'hosAdmDocName',
+        label: '医生名称3',
+        children: [
+          {
+            prop: 'age',
+            label: '年龄3',
+            slot: 'age3'
+          }
+        ]
+      }
+    ]
   },
   {
     prop: 'age',
-    label: '年龄'
+    label: '年龄',
+    align: 'center'
   },
   {
     prop: 'status',
@@ -78,8 +136,16 @@ const columns = [
   {
     prop: 'hosAdmSpecName',
     label: '科室',
-    render({ row, column, $index }) {
-      return `<span style="color:red;">${row.hosAdmSpecName}</span>`
+    render(h, { row }) {
+      return h(
+        'span',
+        {
+          style: {
+            color: 'red'
+          }
+        },
+        row.hosAdmSpecName
+      )
     }
   },
   {
@@ -94,6 +160,7 @@ const tableConfig = {
 }
 
 const pageInfo = reactive({
+  // isShow: false,
   pageSize: 10,
   pageNo: 1,
   total: 0
@@ -114,7 +181,7 @@ const handleCurrentChange = (cur) => {
 }
 
 const cellClick = (row, column, cell, event) => {
-  console.log(row, column, cell, event)
+  // console.log(row, column, cell, event)
 }
 
 const myTable = ref(null)
@@ -125,6 +192,10 @@ onMounted(() => {
 
 const handleStatusChange = (row) => {
   alert(row.status)
+}
+
+const selectionChange = (selection) => {
+  console.log(selection)
 }
 
 getTableData()

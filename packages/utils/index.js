@@ -11,4 +11,4 @@
 export { deepAssign } from './src/deepAssign.js'
 export { emitter } from './src/emitter.js'
 export { isArray } from './src/isArray.js'
-
+export { getNanoid } from './src/getNanoid.js'

@@ -56,4 +56,8 @@ const dateChange = (val) => {
   }
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+:deep(.el-date-editor) {
+  width: 100%;
+}
+</style>

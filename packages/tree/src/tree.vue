@@ -15,6 +15,7 @@
       :draggable="treeObject.dragAble"
       @node-drop="handleDrop"
       :expand-on-click-node="treeObject.expandOnClickNode"
+      v-bind="$attrs"
     />
   </div>
 </template>
