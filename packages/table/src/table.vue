@@ -1,7 +1,6 @@
 <template>
   <div class="com-container" v-loading="loading" element-loading-text="数据加载中...">
     <table-tool-bar :columns="columns"></table-tool-bar>
-    {{ columns }}
     <el-table :data="data" v-bind="attrs" class="p-table">
       <table-column :columns="columns">
         <template

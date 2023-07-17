@@ -10,13 +10,13 @@
             <el-popover width="auto" trigger="click">
               <el-input v-model="searchText" placeholder="请输入" />
               <p-tree
-                :data="treeData"
+                :data="columnsModel"
                 :showCheckbox="true"
                 :default-checked-keys="defaultCheckedKeyList"
                 node-key="_uniqueKey"
                 v-model="searchText"
                 :props="defaultProps"
-                @check-change="backNodeClick"
+                @check="backNodeClick"
                 @draggBack="draggBack"
               ></p-tree>
               <template #reference>
@@ -62,12 +62,8 @@ const treeData = computed(() => {
 })
 
 const getDefaultCheckedKeyList = () => {
-  const columnArr = recursiveFilter(JSON.parse(JSON.stringify(columnsModel.value)), 'type', [
-    'selection',
-    'index ',
-    'expand'
-  ])
-  const defaultCheckedKeyArr = recursiveFilter(columnArr, 'visible', ['false', undefined])
+  const columnArr = recursiveFilter(columnsModel.value, 'type', ['selection', 'index ', 'expand'])
+  const defaultCheckedKeyArr = recursiveFilter(columnArr, 'visible', [undefined])
   return recursiveVisibleFields(defaultCheckedKeyArr, '_uniqueKey')
 }
 
@@ -136,10 +132,10 @@ const treeObject = reactive({
 })
 
 // 节点点击的回调事件
-const backNodeClick = (val, nodeCheck) => {
+const backNodeClick = (val) => {
   // 设置列的显示和隐藏
-  val.visible = nodeCheck
-  console.log(nodeCheck)
+  console.log(val)
+  val.visible = !val.visible
 }
 
 // 拖拽的回调事件

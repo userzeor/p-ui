@@ -2,52 +2,48 @@
   <template v-for="(item, index) in columns" :key="item.prop">
     <template v-if="item.children">
       <el-table-column v-if="item.visible" v-bind="filterNoUseAttr(item)">
-        <el-table-column
-          v-for="(kItem, KIndex) in item.children"
-          :key="kItem.prop"
-          v-bind="filterNoUseAttr(kItem)"
-        >
-          <table-column
-            v-if="kItem.children[KIndex]?.children"
-            :columns="kItem.children[KIndex]?.children"
-          >
-          </table-column>
-          <template v-else>
-            <el-table-column
-              v-for="(jItem, jIndex) in kItem.children"
-              :key="jItem.prop"
-              v-bind="jItem"
+        <template v-for="(kItem, KIndex) in item.children" :key="kItem.prop">
+          <el-table-column v-if="kItem.visible" v-bind="filterNoUseAttr(kItem)">
+            <table-column
+              v-if="kItem.children[KIndex]?.children"
+              :columns="kItem.children[KIndex]?.children"
             >
-              <template v-if="$slots[jItem.slot]" #default="{ row, column, $index }">
-                <slot
-                  v-if="$index !== -1"
-                  :name="jItem.slot"
-                  :row="row"
-                  :column="column"
-                  :columnIndex="jIndex"
-                  :$index="$index"
-                ></slot>
+            </table-column>
+            <template v-else>
+              <template v-for="(jItem, jIndex) in kItem.children" :key="jItem.prop">
+                <el-table-column v-if="jItem.visible" v-bind="jItem">
+                  <template v-if="$slots[jItem.slot]" #default="{ row, column, $index }">
+                    <slot
+                      v-if="$index !== -1"
+                      :name="jItem.slot"
+                      :row="row"
+                      :column="column"
+                      :columnIndex="jIndex"
+                      :$index="$index"
+                    ></slot>
+                  </template>
+                  <template v-if="jItem.render" #default="{ row, column, $index }">
+                    <render-dom
+                      :render="jItem.render"
+                      :row="row"
+                      :column="column"
+                      :columnIndex="jIndex"
+                      :$index="$index"
+                    ></render-dom>
+                  </template>
+                  <template v-if="$slots[jItem.headerSlot]" #header="{ column, $index }">
+                    <slot
+                      :name="jItem.headerSlot"
+                      :column="column"
+                      :columnIndex="jIndex"
+                      :$index="$index"
+                    ></slot>
+                  </template>
+                </el-table-column>
               </template>
-              <template v-if="jItem.render" #default="{ row, column, $index }">
-                <render-dom
-                  :render="jItem.render"
-                  :row="row"
-                  :column="column"
-                  :columnIndex="jIndex"
-                  :$index="$index"
-                ></render-dom>
-              </template>
-              <template v-if="$slots[jItem.headerSlot]" #header="{ column, $index }">
-                <slot
-                  :name="jItem.headerSlot"
-                  :column="column"
-                  :columnIndex="jIndex"
-                  :$index="$index"
-                ></slot>
-              </template>
-            </el-table-column>
-          </template>
-        </el-table-column>
+            </template>
+          </el-table-column>
+        </template>
       </el-table-column>
     </template>
     <template v-else>
