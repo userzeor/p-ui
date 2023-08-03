@@ -120,7 +120,7 @@ const generateMdText = (mdHeaderText, mateMdStrArr) => {
           .replace(/\n/g, '<br/>')
           .replace(/[\r\n]/g, '')
           .replace(/(<)?^\s*\{[\s\S]*\}\s*$(>)?/g, function (match, p1, p2) {
-            console.log(match)
+            // console.log(match)
             return (
               (p1 ? p1 : '') +
               '<pre>' +
