@@ -14,7 +14,7 @@ const quillObject = reactive({
   height: 400
 })
 
-const valueHtml = ref('这是一首简单的小情歌')
+const valueHtml = undefined
 
 const backContent = (val) => {
   console.log(val)

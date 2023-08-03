@@ -1,17 +1,16 @@
 <template>
-    <div>
+  <div>
+    <el-drawer v-model="drawer" v-bind="$attrs" :before-close="handleClose">
+      <template #header>
+        <slot name="header"></slot>
+      </template>
+      <slot name="content"></slot>
 
-    <el-drawer v-model="drawer" :direction="drawerObject.direction" :size="drawerObject.size" :before-close="handleClose" >
-        <template #header>
-            <slot name="header"></slot>
-        </template>
-        <slot name="content"></slot>
-
-        <template #footer>
-            <slot name="footer"></slot>
-        </template>
+      <template #footer>
+        <slot name="footer"></slot>
+      </template>
     </el-drawer>
-    </div>
+  </div>
 </template>
 
 <script setup name="p-drawer">
@@ -43,5 +42,4 @@ const handleClose = () => {
     @slot #content | 抽屉内容插槽 |
     @slot #footer | 抽屉footer插槽 |
  */
-
 </script>

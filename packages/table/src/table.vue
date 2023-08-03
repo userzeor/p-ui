@@ -1,7 +1,22 @@
 <template>
-  <div class="com-container">
-    <el-table v-loading="loading" :data="data" v-bind="attrs" class="p-table">
-      <el-table-column v-for="(item, index) in columns" :key="item.prop" v-bind="item">
+  <div class="com-container" v-loading="loading" element-loading-text="数据加载中...">
+    <table-tool-bar :columns="columns"></table-tool-bar>
+    <el-table :data="data" v-bind="attrs" class="p-table">
+      <table-column :columns="columns">
+        <template
+          v-for="(slotFun, slotName) in columnSlot"
+          #[slotName]="{ row, column, columnIndex, $index }"
+        >
+          <slot
+            :name="slotName"
+            :row="row"
+            :column="column"
+            :columnIndex="columnIndex"
+            :$index="$index"
+          ></slot>
+        </template>
+      </table-column>
+      <!-- <el-table-column v-for="(item, index) in columns" :key="item.prop" v-bind="item">
         <template v-if="$slots[item.slot]" #default="{ row, column, $index }">
           <slot
             v-if="$index !== -1"
@@ -13,13 +28,13 @@
           ></slot>
         </template>
         <template v-if="item.render" #default="{ row, column, $index }">
-          <component
-            :is="item.render"
+          <render-dom
+            :render="item.render"
             :row="row"
             :column="column"
             :columnIndex="index"
             :$index="$index"
-          ></component>
+          ></render-dom>
         </template>
         <template v-if="$slots[item.headerSlot]" #header="{ column, $index }">
           <slot
@@ -29,9 +44,12 @@
             :$index="$index"
           ></slot>
         </template>
-      </el-table-column>
-      <template v-for="(slotFun, slotName) in $slots" #[slotName]>
-        <slot v-if="$slots[slotName]" :name="slotName"></slot>
+      </el-table-column> -->
+      <template v-if="$slots['default']" #default>
+        <slot></slot>
+      </template>
+      <template v-if="$slots['append']" #append>
+        <slot name="append"></slot>
       </template>
       <template v-if="!$slots['empty']" #empty>
         <p-empty empty-type="1"></p-empty>
@@ -40,13 +58,14 @@
 
     <!-- 分页组件 -->
     <el-pagination
-      v-model:current-page="pageInfoModel.pageNo"
-      v-model:page-size="pageInfoModel.pageSize"
-      :page-sizes="pageInfoModel.pageSizes || [10, 20, 50, 100]"
-      :disabled="pageInfoModel.disabled || false"
-      :background="pageInfoModel.background || true"
-      :layout="pageInfoModel.layout || '->, total, prev, pager, next, sizes, jumper, slot'"
-      :total="pageInfoModel.total"
+      v-if="pageModel.isShow"
+      v-model:current-page="pageModel.pageNo"
+      v-model:page-size="pageModel.pageSize"
+      :page-sizes="pageModel.pageSizes"
+      :disabled="pageModel.disabled"
+      :background="pageModel.background"
+      :layout="pageModel.layout"
+      :total="pageModel.total"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       class="p-pagination"
@@ -56,10 +75,12 @@
 </template>
 
 <script setup name="p-table">
-import { reactive, getCurrentInstance, onMounted, computed } from 'vue'
+import { h, reactive, getCurrentInstance, onMounted, computed } from 'vue'
 import { useExposeRef } from '@p-ui/hook'
 import { deepAssign } from '@p-ui/utils'
 import { useVModel } from '@vueuse/core'
+import TableToolBar from './tableToolBar.vue'
+import TableColumn from './tableColumn.vue'
 /**
  @prop data | 显示的数据 | array | - | []
  @prop columns | table配置项 | Object | {} | {}
@@ -92,6 +113,7 @@ const props = defineProps({
 
 /** 当前组件实例 */
 const { proxy } = getCurrentInstance()
+console.log(proxy)
 
 /** 合并透传属性 */
 const attrs = computed(() => {
@@ -100,6 +122,33 @@ const attrs = computed(() => {
 
 // table分页信息
 const pageInfoModel = useVModel(props, 'pageInfo', emit)
+
+// table分页默认的信息
+const defaultPageModel = {
+  isShow: true,
+  pageSizes: [10, 20, 50, 100],
+  disabled: false,
+  background: true,
+  layout: '->, total, prev, pager, next, sizes, jumper'
+}
+
+// 合并默认信息
+const pageModel = computed(() => {
+  return deepAssign(defaultPageModel, pageInfoModel.value)
+})
+
+const columnSlot = computed(() => {
+  const slotObj = {}
+  const ignoreArr = ['default', 'append', 'empty']
+  for (const slotName in proxy.$slots) {
+    const isAdd = ignoreArr.indexOf(slotName) === -1
+    if (Object.hasOwnProperty.call(proxy.$slots, slotName) && isAdd) {
+      slotObj[slotName] = proxy.$slots[slotName]
+    }
+  }
+  console.log(slotObj)
+  return slotObj
+})
 
 // 分页大小变化的事件
 const handleSizeChange = (size) => {
@@ -113,13 +162,18 @@ const handleCurrentChange = (cur) => {
 
 /** 抛出ref实例 */
 onMounted(() => {
-  console.log(proxy)
+  // console.log(proxy)
   exposeObj = useExposeRef(proxy, exposeObj)
 })
 
 let exposeObj = reactive({})
 
 defineExpose(exposeObj)
+
+// render函数实现
+const renderDom = (_, obj) => {
+  return _.render(h, _)
+}
 </script>
 
 <style scoped lang="scss">

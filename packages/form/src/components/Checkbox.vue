@@ -64,4 +64,8 @@ let exposeObj = reactive({})
 
 defineExpose(exposeObj)
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.com-container {
+  width: 100%;
+}
+</style>

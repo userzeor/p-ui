@@ -1,44 +1,43 @@
 <template>
-    <el-button type="primary" @click="handleDrawerOpen">open</el-button>
-    <p-drawer :drawerObject="drawerObject"  @backVisible="backVisible" >
-             <template #header>
-                <div>我是头部</div>
-            </template>
+  <el-button type="primary" @click="handleDrawerOpen">open</el-button>
 
-            <template #content>
-                <div>我是内容</div>
-                <div>我是内容</div>
-                <div>我是内容</div>
-                <div>我是内容</div>
-                <el-button @click="handleInnerBtn">Click me!</el-button>
+  <p-drawer :drawerObject="drawerObject" @backVisible="backVisible">
+    <template #header>
+      <div>我是头部</div>
+    </template>
 
-                <el-drawer
-                    v-model="innerDrawer"
-                    title="I'm inner Drawer"
-                    :append-to-body="true"
-                    :before-close="handleInnerClose"
-                    size="20%"
-                >
-                    <p>_(:зゝ∠)_</p>
-                </el-drawer>
-            </template>
+    <template #content>
+      <div>我是内容</div>
+      <div>我是内容</div>
+      <div>我是内容</div>
+      <div>我是内容</div>
+      <el-button @click="handleInnerBtn">Click me!</el-button>
 
-            <template #footer>
-                <div style="flex: auto">
-                    <el-button @click="cancelClick">取消</el-button>
-                    <el-button type="primary" @click="confirmClick">确认</el-button>
-                </div>
-            </template>
-    </p-drawer>
+      <el-drawer
+        v-model="innerDrawer"
+        title="I'm inner Drawer"
+        :append-to-body="true"
+        :before-close="handleInnerClose"
+        size="20%"
+      >
+        <p>_(:зゝ∠)_</p>
+      </el-drawer>
+    </template>
+
+    <template #footer>
+      <div style="flex: auto">
+        <el-button @click="cancelClick">取消</el-button>
+        <el-button type="primary" @click="confirmClick">确认</el-button>
+      </div>
+    </template>
+  </p-drawer>
 </template>
 
 <script setup>
 import { reactive, ref } from 'vue'
 import { ElMessageBox } from 'element-plus'
 const drawerObject = reactive({
-  drawerVisible: false,
-  direction: 'rtl', // rtl / ltr / ttb / btt
-  size: '50%'
+  drawerVisible: false
 })
 const innerDrawer = ref(false)
 
