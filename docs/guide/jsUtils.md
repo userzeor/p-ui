@@ -77,3 +77,23 @@ deepAssign({}, { a: 1 }, { b: 3 })
 ```
 
 <!-- isArray end -->
+
+<!-- getNanoid start -->
+### **getNanoid**
+
+**<span style="fontSize: 16px;"> 生成唯一id </span>**
+
+**参数**
+1.  {number} len 生成唯一id的长度
+
+
+**返回值**
+
+**<span style="fontSize: 16px;"> {string} 返回字符串id </span>**
+
+**例子**
+```js
+ const nId = getNanoid(32)
+ 
+```
+<!-- getNanoid end -->
