@@ -28,7 +28,7 @@ watch(
 
 const filterNode = (val, data) => {
   if (!val) return true
-  return data.label.includes(val)
+  return data?.label?.includes(val)
 }
 </script>
 

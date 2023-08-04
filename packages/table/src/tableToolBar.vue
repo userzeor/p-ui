@@ -62,8 +62,7 @@ const treeData = computed(() => {
 })
 
 const getDefaultCheckedKeyList = () => {
-  const columnArr = recursiveFilter(columnsModel.value, 'type', ['selection', 'index ', 'expand'])
-  const defaultCheckedKeyArr = recursiveFilter(columnArr, 'visible', [undefined])
+  const defaultCheckedKeyArr = recursiveFilter(columnsModel.value, 'visible', [undefined])
   return recursiveVisibleFields(defaultCheckedKeyArr, '_uniqueKey')
 }
 
@@ -115,21 +114,6 @@ function recursiveFilter(objArray, typeKey, filterTypes) {
     return true // 保留不满足条件的元素
   })
 }
-
-const treeObject = reactive({
-  showCheckbox: true,
-  nodeKey: '_uniqueKey', // 默认展开和选择必须设置的值
-  defaultProps: {
-    children: 'children',
-    label: 'label'
-  }, // 节点属性
-  defaultExpandedKeys: [], // 展开节点
-  defaultCheckedKeys: [], // 默认选择节点
-  defaultExpandAll: false, // 展开全部节点
-  accordion: false, // 手风琴模式
-  dragAble: false, // 拖拽
-  expandOnClickNode: false // 是否在点击节点的时候展开或者收缩节点
-})
 
 // 节点点击的回调事件
 const backNodeClick = (val) => {
