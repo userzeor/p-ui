@@ -157,7 +157,13 @@ const columns = reactive([
 ])
 
 const tableConfig = {
-  ref: 'elTable'
+  ref: 'elTable',
+  tableToolBar: {
+    custom: {
+      name: '',
+      draggable: true
+    }
+  }
 }
 
 const pageInfo = reactive({
